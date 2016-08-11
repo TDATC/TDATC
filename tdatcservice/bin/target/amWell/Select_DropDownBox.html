@@ -1,0 +1,35 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	/* $('#select').click(function(){
+		alert($('.Fruits').val());
+	});
+	 */
+	$('.Fruits').change(function(){
+		alert('VALUE='+ $(this).val());
+		alert('Text ='+ $('.Fruits option:selected').text());
+	})
+});
+
+</script>
+</head>
+
+<body>
+<h1>Example for Select Drop Down Example</h1>
+
+<select class = "Fruits">
+<option value="None">--Select--</option>
+<option value="Mango">Mango</option>
+<option value="Orange">Orange</option>
+<option value="Grapes">Grapes</option>
+<option value="Banana">Banana</option>
+</select>
+
+<input type="button" value='Display Selected' id='select'>
+<!-- <button id="select">Display Selected</button>
+ --></body>
+</html>

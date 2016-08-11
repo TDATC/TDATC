@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans" 
+     xmlns:mvc="http://www.springframework.org/schema/mvc"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	
+	<context:property-placeholder location="classpath:db.properties"/>
+	<context:component-scan base-package="com.skoruz" annotation-config="true" />
+	<context:annotation-config />
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${database.driver}" />
+		<property name="url" value="${database.url}" />
+		<property name="username" value="${database.user}" />
+		<property name="password" value="${database.password}" />
+		<property name="validationQuery" value="${dbcp_validationQuery}" />
+		<property name="testOnBorrow" value="${dbcp_testOnBorrow}" />
+		<property name="validationQueryTimeout" value="${dbcp_validationQueryTimeout}" />
+		<property name="logAbandoned" value="${dbcp_logAbandoned}" />
+		<property name="maxIdle" value="${dbcp_maxIdle}" />
+		<property name="numTestsPerEvictionRun" value="${dbcp_numTestsPerEvictionRun}" />
+		<property name="removeAbandonedTimeout" value="${dbcp_removeAbandonedTimeout}" />
+		<property name="testWhileIdle" value="${dbcp_testWhileIdle}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${dbcp_timeBetweenEvictionRunsMillis}" />	
+	<!-- Staging environment -->
+		
+	<!-- <property name="url" value="jdbc:mysql://localhost:3306/medical" />
+		<property name="username" value="dev_medical" />
+		<property name="password" value="dev@56" /> 
+	 -->	
+</bean>
+	
+	
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.skoruz.users.entity.User</value>
+				<value>com.skoruz.users.entity.PatientDetails</value>
+				<value>com.skoruz.pharmacy.entity.Pharmacy</value>
+				<value>com.skoruz.pharmacy.entity.PharmacyBranches</value>
+				<value>com.skoruz.hospitals.entity.Hospital</value>
+				<value>com.skoruz.hospitals.entity.HospitalBranches</value>
+				<value>com.skoruz.users.entity.Administrator</value>
+				<value>com.skoruz.users.entity.PhysicianDetails</value>
+				<value>com.skoruz.users.entity.PatientCarePartner</value>
+				<value>com.skoruz.users.entity.HospitalAdministrator</value>
+				<value>com.skoruz.users.entity.PharmacyAdministrator</value>
+				<value>com.skoruz.users.entity.PreferredPhysician</value>
+				<value>com.skoruz.users.entity.PreferredHospital</value>
+				<value>com.skoruz.users.entity.PreferredPharmacy</value>
+				<value>com.skoruz.users.entity.UserImage</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+			    <prop key="hibernate.show_sql"> ${hibernate.show_sql} </prop>
+			    <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+			    <prop key="hibernate.connection.zeroDateTimeBehavior">${zero_dateTime}</prop>
+                <prop key="hibernate.connection.autoReconnect">${auto_reconnect}</prop>
+                <prop key="hibernate.connection.autoReconnectForPools">${auto_reconnect_pool}</prop>
+                <prop key="current_session_context_class">thread</prop> 
+			</props>
+		</property>
+	</bean>
+	
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	
+	<bean id="patientImageService" class="com.skoruz.users.service.PatientImageServiceImpl">
+	   <property name="patientImageDAO" ref="patientImageDAO"/>
+	</bean>
+	
+	<bean id="patientImageDAO" class="com.skoruz.users.dao.PatientImageDAOImpl">
+	   <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+	</bean>
+	
+	 <bean id="carePartnerService" class="com.skoruz.users.service.CarePartnerServiceImpl">
+	 	<property name="carePartnerDAO" ref="carePartnerDAO"/>
+	 	<property name="patientDAO" ref="patientDAO"/>
+	 </bean>
+	 
+	<bean id="carePartnerDAO" class="com.skoruz.users.dao.CarePartnerDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+	</bean>
+	 
+	 <bean id="patientDAO" class="com.skoruz.users.dao.PatientDAOImpl">
+	 	<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	 </bean>
+	 
+	 <bean id="patientService" class="com.skoruz.users.service.PatientServiceImpl" >
+	 	<qualifier value="patientService" />
+	 	<property name="patientDAO" ref="patientDAO" />
+	 </bean>
+	 
+	 <bean id="physicianDAO" class="com.skoruz.users.dao.PhysicianDAOImpl">
+	 	<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+	 </bean>
+	 
+	 <bean id="physicianservice" class="com.skoruz.users.service.PhysicianServiceImpl">
+	 <property name="physicianDAO" ref="physicianDAO"/>
+	 </bean>
+	
+	<bean id="pharmacyDAO" class="com.skoruz.pharmacy.dao.PharmacyDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	
+	<bean id="pharmacyService" class="com.skoruz.pharmacy.service.PharmacyServiceImpl">
+		<property name="pharmacyDAO" ref="pharmacyDAO" />
+	 </bean>
+	 
+	 <bean id="hospitalDAO" class="com.skoruz.hospitals.dao.HospitalDAOImpl">
+	 	<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	 </bean>
+	 
+	 <bean id="hospitalServices" class="com.skoruz.hospitals.service.HospitalServiceImpl">
+	 	<property name="hospitalDao" ref="hospitalDAO" />
+	 </bean>
+	 
+	 <bean id="administratorService" class="com.skoruz.users.service.AdminServiceImpl">
+	 	<property name="patientDao" ref="patientDAO" />
+	 </bean>
+	
+	</beans>

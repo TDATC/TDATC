@@ -1,0 +1,227 @@
+<html>
+
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		
+	<script>
+	
+		$(document).ready(function(){
+			
+			
+			
+			$('#xyz').click(function(){
+				var patientDetails={
+						"emailAddress":"Varun@gmail.com",
+						 "userType":"PT",
+						 "gender":"M",
+						 "accountState":"ACTIVE",
+						 "notificationAlert":true,
+						 "isPrimarySubscriber":true,
+						 "assesmentCompletionAlert":true,
+						 "assesmentNotificationAlert":true,
+						 "totalAmountPaid":200,
+						 "healthPlanId":2
+						};
+				
+				var targetData = JSON.stringify(patientDetails);
+				
+				// do AJAX CALL HERE
+				$.ajax({
+					url: "http://localhost:8080/amWell/rest/patient/register",
+					type : 'POST',
+			        contentType: "application/json",
+					data : targetData,
+					success : function(data){
+						alert(data);	
+					  }
+				});
+				
+			});
+			
+			$('.abc').click(function(){
+				alert("Welcome");
+				
+				var physicianDetails={
+						"emailAddress":"abc123@gmail.com",
+						 "userType":"PHS",
+						 "gender":"M",
+						 "accountState":"ACTIVE",
+						 "notificationAlert":true,
+						 "patientRequestAlert":true
+				};
+				
+				var targetData = JSON.stringify(physicianDetails);
+				
+				//do AJAX CALL HERE
+				$.ajax({
+					url :"http://localhost:8080/amWell/rest/physician/register",
+					type: 'POST',
+					contentType: "application/json",
+					data : targetData,
+					success :  function(data){
+						alert(data);
+					}
+				})
+				
+				
+			});
+			
+			$('.carePartner').click(function(){
+				alert("Welcome");
+				
+			var carePartner={
+					"patientCarePartnerId" : "14",
+					"patientSubscriberId" : "37",
+					"patientRelationship" : "father"
+			};	
+			
+			var targetData = JSON.stringify(carePartner);
+			$.ajax({
+				url : "http://localhost:8080/amWell/rest/patient/registerPatientCarePartner",
+				type: 'POST',
+				contentType: "application/json",
+				data : targetData,
+				success : function(data){
+					alert(data);
+				}
+				
+			})
+			
+			});
+			
+			$('.prePhysician').click(function(){
+				alert("welcome");
+				
+				var preferredPhysician={
+						"patientId" : "14",
+						"physicianId" : "31"
+				};
+				
+				var targetData = JSON.stringify(preferredPhysician);
+				$.ajax({
+					url : "http://localhost:8080/amWell/rest/patient/registerPreferredPhysician",
+					type : 'POST',
+					contentType : "application/json",
+					data : targetData,
+					success : function(data){
+						alert(data);
+					}
+					
+				})
+				
+				
+			});
+			
+			$('.preHospital').click(function(){
+				alert("welcome");
+				
+				var preferredHospital={
+						"patientId" : "14",
+						"hospitalBranchId" : "7"
+				};
+				
+				var targetData = JSON.stringify(preferredHospital);
+				$.ajax({
+					url : "http://localhost:8080/amWell/rest/patient/registerPreferredHospital",
+					type : 'POST',
+					contentType : "application/json",
+					data : targetData,
+					success : function(data){
+						alert(data);
+					}
+				})
+			});
+			
+			$('.prePharmacy').click(function(){
+				alert("welcome");
+				
+				var preferredPharmacy={
+					            "patientId" : "14",
+					            "pharmacyBranchId" : "1",
+					
+				};
+				
+				var targetData = JSON.stringify(preferredPharmacy);
+				$.ajax({
+					url : "http://localhost:8080/amWell/rest/patient/registerPreferredPharmacy",
+					type : 'POST',
+					contentType : "application/json",
+					data : targetData,
+					success : function(data){
+						   alert(data);
+					}
+					
+				})
+			});
+			
+			$('.image').click(function(){
+				alert("welcome"+$('#uploadImage1').val());
+				
+				/*  var image={
+						
+						"users_id" : "14",
+						"usersImage" : "$('#uploadImage1').val()",
+				};
+				 */ 
+				 
+			     var data = new FormData();
+				 jQuery.each(jQuery('#uploadImage1')[0].files, function(i, file) {
+				     data.append('file-'+i, file);
+				 });
+				
+				
+				//var targetData = JSON.stringify(image);
+				
+				
+				$.ajax({
+					url : "http://localhost:8080/amWell/rest/files/upload",
+					type : 'POST',
+					contentType : false,
+					data : data,
+					success : function(data){
+						      alert(data);
+					}
+					
+				})
+				
+				
+			});
+			
+		});
+		
+		
+	</script>
+		
+	</head>
+	
+	<body>
+	<h1>Welcome to AmWell </h1>
+	<button id="xyz" class="abc">Click here</button>
+	<button id="physician" class="abc">Physician</button>
+	<button class="healthplan">HealthPlan</button>
+	<button class="carePartner">CarePartner</button>
+	<button class="prePhysician">Preferred Physician</button>
+	<button class="preHospital">Preferred Hospital</button>
+	<button class="prePharmacy">Preferred Pharmacy</button>
+	<button class="image">Upload Image</button>
+	
+	<div  class="left imgaddContentList">
+	<table >
+<tr>
+	<td>
+		<img id="uploadPreview1" src="images/pic.png" width="200px"height="160px" style="border:3px solid gray;"><br />
+		
+	</td>
+	<tr>
+	<td style="color:gray;"><input id="uploadImage1" type="file" name="upload" onchange="PreviewImage(1);" /></td>
+	</tr>
+</tr>
+</table>	
+</div>
+	
+	
+	
+	</body>
+
+
+</html>

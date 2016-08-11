@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	
+	<context:property-placeholder location="classpath:db.properties"/>
+	<context:component-scan base-package="com.skoruz" />
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+       <beans:property name="driverClassName" value="${database.driver}" />
+		<beans:property name="url" value="${database.url}" />
+		<beans:property name="username" value="${database.user}" />
+		<beans:property name="password" value="${database.password}" />
+		<beans:property name="validationQuery" value="${dbcp_validationQuery}" />
+		<beans:property name="testOnBorrow" value="${dbcp_testOnBorrow}" />
+		<beans:property name="validationQueryTimeout" value="${dbcp_validationQueryTimeout}" />
+		<beans:property name="logAbandoned" value="${dbcp_logAbandoned}" />
+		<beans:property name="maxIdle" value="${dbcp_maxIdle}" />
+		<beans:property name="numTestsPerEvictionRun" value="${dbcp_numTestsPerEvictionRun}" />
+		<beans:property name="removeAbandonedTimeout" value="${dbcp_removeAbandonedTimeout}" />
+		<beans:property name="testWhileIdle" value="${dbcp_testWhileIdle}" />
+		<beans:property name="timeBetweenEvictionRunsMillis" value="${dbcp_timeBetweenEvictionRunsMillis}" />
+		</beans:bean>
+	
+<beans:bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+<beans:property name="dataSource" ref="dataSource" />
+<beans:property name="annotatedClasses">
+<beans:list>
+	            <beans:value>com.skoruz.users.entity.Country</beans:value>
+			    <beans:value>com.skoruz.users.entity.AccountState</beans:value>
+				<beans:value>com.skoruz.users.entity.User</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetails</beans:value>
+				<beans:value>com.skoruz.pharmacy.entity.Pharmacy</beans:value>
+				<beans:value>com.skoruz.pharmacy.entity.PharmacyBranches</beans:value>
+				<beans:value>com.skoruz.hospitals.entity.Hospital</beans:value>
+				<beans:value>com.skoruz.hospitals.entity.HospitalBranches</beans:value>
+				<beans:value>com.skoruz.users.entity.PhysicianDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientCarePartner</beans:value>
+				<beans:value>com.skoruz.users.entity.HospitalAdministrator</beans:value>
+				<beans:value>com.skoruz.users.entity.PharmacyAdministrator</beans:value>
+				<beans:value>com.skoruz.users.entity.PreferredPhysician</beans:value>
+				<beans:value>com.skoruz.users.entity.PreferredHospital</beans:value>
+				<beans:value>com.skoruz.users.entity.PreferredPharmacy</beans:value>
+				<beans:value>com.skoruz.hospitals.entity.HospitalBranchesDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDietaryDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDietaryFatDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDietaryAcidDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientVitaminDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientBodyDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PhysicianAvailability</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetailsBodyDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetailsVitaminDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetailsDietaryAcidDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetailsDietaryFatDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetailsDietaryDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientMedicationDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetailsMedicationDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientAppointmentDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetailsAppointmentDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientEnergyBloodBodyDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientDetailsEnergyBloodBodyDTO</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientMeasurementToolsDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.Medicine</beans:value>
+				<beans:value>com.skoruz.users.entity.Allergies</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientAllergyDetails</beans:value>
+				<beans:value>com.skoruz.users.entity.MedicationProcedure</beans:value>
+				<beans:value>com.skoruz.users.entity.Location</beans:value>
+				<beans:value>com.skoruz.users.entity.Specialization</beans:value>
+				<beans:value>com.skoruz.users.entity.Qualification</beans:value>
+				<beans:value>com.skoruz.users.entity.Clinic</beans:value>
+				<beans:value>com.skoruz.users.entity.Affliation</beans:value>
+				<beans:value>com.skoruz.users.entity.PatientPhysicianMap</beans:value>
+				<beans:value>com.skoruz.users.entity.MedicationRemainder</beans:value>
+				<beans:value>com.skoruz.users.entity.SavePdf</beans:value>
+				<beans:value>com.skoruz.users.entity.ClinicVisitingTiming</beans:value>
+				<beans:value>com.skoruz.users.entity.City</beans:value>
+				<beans:value>com.skoruz.users.entity.Appointmentstatus</beans:value>
+				<beans:value>com.skoruz.users.entity.Beforefoodofterfood</beans:value>
+				<beans:value>com.skoruz.users.entity.Freqvency</beans:value>
+				<beans:value>com.skoruz.users.entity.Gender</beans:value>
+				<beans:value>com.skoruz.users.entity.PhysicianAvilable</beans:value>
+				<beans:value>com.skoruz.users.entity.UserType</beans:value>
+		        </beans:list>
+		        </beans:property>
+		        
+		        <beans:property name="hibernateProperties">
+			    <beans:props>
+				   <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</beans:prop>
+			       <beans:prop key="hibernate.show_sql"> ${hibernate.show_sql} </beans:prop>
+			       <beans:prop key="hibernate.format_sql">${hibernate.format_sql}</beans:prop>
+			       <beans:prop key="hibernate.connection.zeroDateTimeBehavior">${zero_dateTime}</beans:prop>
+                   <beans:prop key="hibernate.connection.autoReconnect">${auto_reconnect}</beans:prop>
+	               <beans:prop key="hibernate.connection.autoReconnectForPools">${auto_reconnect_pool}</beans:prop>
+			    </beans:props>
+		        </beans:property>
+	            </beans:bean>
+	
+	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<beans:property name="sessionFactory" ref="sessionFactory" />
+	</beans:bean>
+	
+	 <beans:bean id="carePartnerService" class="com.skoruz.users.service.CarePartnerServiceImpl" />
+     <beans:bean id="carePartnerDao" class="com.skoruz.users.dao.CarePartnerDAOImpl" />
+    
+     <beans:bean id="patientDao" class="com.skoruz.users.dao.PatientDAOImpl" />
+     <beans:bean id="patientService" class="com.skoruz.users.service.PatientServiceImpl" />
+     
+     <beans:bean id="physicianDao" class="com.skoruz.users.dao.PhysicianDAOImpl"/>
+	 <beans:bean id="physicianService" class="com.skoruz.users.service.PhysicianServiceImpl"/>
+	 
+	 <beans:bean id="pharmacyDao" class="com.skoruz.pharmacy.dao.PharmacyDAOImpl"/>
+	 <beans:bean id="pharmacyService" class="com.skoruz.pharmacy.service.PharmacyServiceImpl"/>
+	
+	 <beans:bean id="hospitalDao" class="com.skoruz.hospitals.dao.HospitalDAOImpl"/>
+	 <beans:bean id="hospitalService" class="com.skoruz.hospitals.service.HospitalServiceImpl"/>
+	 	
+	 
+	 <beans:bean id="adminService" class="com.skoruz.users.service.AdminServiceImpl"/>
+	 <beans:bean id="adminDao" class="com.skoruz.users.dao.AdminDAOImpl"/>
+	 	
+	 
+	 <beans:bean id="patientMobileDao" class="com.skoruz.users.dao.PatientMobileDAOImpl"/>
+	 <beans:bean id="patientMobileService" class="com.skoruz.users.service.PatientMobileServiceImpl"/>
+	 	
+	 
+	 <beans:bean id="physicianMobileDao" class="com.skoruz.users.dao.PhysicianMobileDAOImpl"/>
+	 <beans:bean id="physicianMobileService" class="com.skoruz.users.service.PhysicianServiceMobileImpl"/>
+	
+	</beans:beans>
