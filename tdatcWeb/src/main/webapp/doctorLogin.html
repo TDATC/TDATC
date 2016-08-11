@@ -1,0 +1,358 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docs Around The Clock- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script  src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/constants.js"></script>
+<script src="js/commons.js"></script>
+
+<style>
+
+
+.button_example{
+border:4px solid #26759E;-webkit-box-shadow: #878787 0px 2px 2px ;-moz-box-shadow: #878787 0px 2px 2px ; box-shadow: #878787 0px 2px 2px ; -webkit-border-radius: 23px; -moz-border-radius: 23px;border-radius: 23px;font-size:13px;font-family:arial, helvetica, sans-serif; padding: 10px 20px 10px 20px; text-decoration:none; display:inline-block;text-shadow: 2px 2px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+ background-color: #3093C7; background-image: -webkit-gradient(linear, left top, left bottom, from(#3093C7), to(#1C5A85));
+ background-image: -webkit-linear-gradient(top, #3093C7, #1C5A85);
+ background-image: -moz-linear-gradient(top, #3093C7, #1C5A85);
+ background-image: -ms-linear-gradient(top, #3093C7, #1C5A85);
+ background-image: -o-linear-gradient(top, #3093C7, #1C5A85);
+ background-image: linear-gradient(to bottom, #3093C7, #1C5A85);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#3093C7, endColorstr=#1C5A85);
+}
+
+.button_example:hover{
+ border:4px solid #26759E;
+ background-color: #26759E; background-image: -webkit-gradient(linear, left top, left bottom, from(#26759E), to(#133D5B));
+ background-image: -webkit-linear-gradient(top, #26759E, #133D5B);
+ background-image: -moz-linear-gradient(top, #26759E, #133D5B);
+ background-image: -ms-linear-gradient(top, #26759E, #133D5B);
+ background-image: -o-linear-gradient(top, #26759E, #133D5B);
+ background-image: linear-gradient(to bottom, #26759E, #133D5B);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#26759E, endColorstr=#133D5B);
+}
+
+</style>
+<script>
+
+$(document).ready(function(){
+	
+	$("#tab").hide;
+	$(".drop").hover(function(){
+		 $("#"+this.id+" div").css("display", "block");
+			
+			
+	    }, function(){
+			
+			 $(".dropdownContain").css("display", "none");	
+	    });
+	
+	
+	var loginId=sessionStorage.getItem("loginId");
+	
+	var hospitalAdminTargetUrl = Constants.get("BASE_URL")+Constants.get("GET_PHYSICIAN_DETAIL")+loginId;
+	var imageUrl = Constants.get("BASE_URL")+Constants.get("IMAGE_URL");
+	debugger;
+	$.ajax({
+		url  : hospitalAdminTargetUrl,
+		type : 'GET',
+	    contentType: "application/json",
+	    success : function(data){
+	    debugger;
+	    	   // alert(data.user_id);
+	    	    physicianId = data.user.user_id;
+	    	    $('#doctorImg').attr("src",imageUrl+data.user.photoPath);
+	    	    loadPhysicianDetails(physicianId);
+			}
+		});  
+	
+	$('.button_example').click(function(){
+		window.location = 'updatedoctorProfile.html?physicianId='+loginId;
+	});
+
+	
+	});
+
+function loadPhysicianDetails(physicianId){
+	
+	 var hospitalTargetUrl = Constants.get("BASE_URL")+Constants.get("GET_PHYSICIAN_DETAIL")+physicianId;
+	
+debugger;
+	$.ajax({
+		url : hospitalTargetUrl,
+		type : 'GET',
+		contentType : 'application/json',
+		success : function(data){
+		debugger;
+			$('#physicianName').html(data.user.firstName);
+			$('#physicianEmail').html(data.user.emailAddress);
+			$('#physicianPhone').html(data.user.phonePersonel);
+			$('#physicianDOB').html(data.user.dateOfBirth);
+			$('#physicianCountry').html(data.user.country);
+			$('#registrationDate').html(data.user.resgistrationDate);
+			$('#physicianGender').html(data.user.gender);
+			$('#specialization').html(data.specializations.specializations);
+			$('#experience').html(data.experienceInYear);
+			$('#education').html(data.qualification.qualification);
+			
+			
+			/* jQuery.each(data.branches, function(index, item) {
+			  if(hospitalBranchId === item.branchId){
+				   $('#branchName').html(item.branchName);
+					$('#branchCity').html(item.city);
+					$('#branchState').html(item.state);
+					$('#branchCountry').html(item.country);
+					$('#branchBranchCode').html(item.branchCode);
+					$('#branchPhone').html(item.phoneBusiness1);
+					$('#branchFax').html(item.fax);
+			   } 
+			});*/
+			
+		}
+	});
+	
+}
+
+</script>
+
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+    
+    
+     <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><ahref="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> <!-- Change your text logo here --> 
+          </div>
+
+		<!-- <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm logo-content"><a class="logo-text"href="index.html">THE DOCS AROUND THE CLOCK</a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> Change your text logo here 
+        </div> -->
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+             <nav class="main_navigation">
+              <ul>
+				
+				<li class="drop">
+					<a href="index.html"  class="droptab userLogout">Logout</a>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+ </div>
+
+</header>
+<body style=" background:url(images/b.png)" > 
+
+<div class="addContentHeader"><span> DOCTOR PROFILE</span></div>
+
+<div>
+<img src="images/pic.png" width=100px height=200px style ="margin-left:647px;margin-right: 85px;margin-top: 37px" id="doctorImg">
+<!-- margin-left: 647px;
+    margin-right: 85px;
+    margin-top: 37px;
+ -->
+</div>
+
+ 
+<div class="popup_block"> 
+	
+	<div class="left adminPhamacyDet">
+	
+	
+	
+		<table class="addcontent-tab" id="branches" border="0">
+			<tr class="addcontent-tabHeader">
+				<th colspan="3" style="text-align:center;">DOCTOR PROFILE</th>
+			</tr>
+			
+			<tr class="branchData">
+				<td class="tab-Head">Name</td>
+				<td>:</td>
+				<td id="physicianName"></td>
+			</tr>
+			
+			<tr class="branchData">
+				<td class="tab-Head">Email</td>
+				<td>:</td>
+				<td  id="physicianEmail"></td>
+			</tr>
+			
+			
+			
+			<tr class="branchData">
+				<td class="tab-Head">phone</td>
+				<td>:</td>
+				<td  id="physicianPhone"></td>
+			</tr>
+			
+			<tr class="branchData">
+				<td class="tab-Head"> Date Of Birth </td>
+				<td>:</td>
+				<td  id="physicianDOB"></td>
+			</tr>
+			
+			
+			<tr class="branchData">
+				<td class="tab-Head">Country</td>
+				<td>:</td>
+				<td  id="physicianCountry"></td>
+			</tr>
+			
+			
+			
+			<tr class="branchData">
+				<td class="tab-Head">Registration Date</td>
+				<td>:</td>
+				<td  id="registrationDate"></td>
+			</tr>
+			
+			<tr class="branchData">
+				<td class="tab-Head"> Gender </td>
+				<td>:</td>
+				<td  id="physicianGender"></td>
+			</tr>
+			
+			<!-- <tr>
+			    <td class="submit-btn-wrapper" colspan="3">
+					<div class="comn-btn right button" id="manageHospitalBranch">MANAGE</div>
+				</td>
+			</tr> -->
+			
+			
+			
+			
+		</table>
+	</div>
+	
+	
+	
+	<div class=" PhamacyDet">
+		<table class="addcontent-tab2" id="branches" border="0">
+			<tr class="addcontent-tabHeader">
+				<th colspan="3" style="text-align:center;">DOCTOR EXPERIENCE DETAILS</th>
+			</tr>
+			
+			<tr class="branchData">
+				<td class="tab-Head">Specialization</td>
+				<td>:</td>
+				<td  id="specialization"></td>
+			</tr>
+			<tr class="branchData">
+				<td class="tab-Head">Experience</td>
+				<td>:</td>
+				<td id="experience"></td>
+			</tr>
+			
+			<tr class="branchData">
+				<td class="tab-Head">Education</td>
+				<td>:</td>
+				<td id="education"></td>
+			</tr>
+			
+			
+			
+			
+			
+			<!-- 
+			<tr>
+			    <td class="submit-btn-wrapper" colspan="3" >
+					<div class="comn-btn right button" id="manageHospitalBranch" >MANAGE</div>
+				</td>
+			</tr> -->
+			
+		</table>
+	</div>
+	
+
+</div>
+
+<div style="text-align: center">
+<a class="button_example"  style="width:15%;text-align: center" >EDIT PROFILE</a>
+</div>
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>Iam</b>Well</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa"></i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>THE DOCS AROUND THE CLOCK &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+
+<!-- -->
+<div class="modal fade bs-modal-sm-branches" id="myModalBranches" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-branches">
+    <div class="modal-content">
+       
+        <div class="bs-example bs-example-tabs">
+			   <table class="addcontentbranch-tab">
+				  <tbody>
+				    <tr class="addcontent-tabHeader">
+						<td colspan="2">Add Branch Details</td>
+					</tr>
+					<tr>
+						 <td><input type="text" id="name-popup" class="form-control" placeholder="Name"></td>
+					</tr>
+						
+					<tr>
+						<td><input type="text" id="city-popup" class="form-control" placeholder="City"></td>
+					</tr>	
+					
+					<tr>
+						<td><input type="text" id="branchCode-popup" class="form-control" placeholder="Code"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" id="country-popup" class="form-control" placeholder="Country"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" id="pinCode-popup" class="form-control" placeholder="Pincode"></td>
+					</tr>
+					<tr>
+						<td class="submit-btn-wrapper">
+							<div class="comn-btn left" id="popadd">ADD</div>
+						</td>
+					</tr>			
+				</tbody>
+			</table>
+        </div>
+      
+      <div class="modal-footer">
+        <center>
+        <a href="#" class="w_btn" data-dismiss="modal">Close</a>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+ <!-- <div id="footer"></div> -->
+</body>
+</html>

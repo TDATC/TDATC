@@ -1,0 +1,296 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docs Around The Clock- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/constants.js"></script>
+<script type="text/javascript" src="js/commons.js"></script>
+<script>
+$(document).ready(function(){
+  	
+});
+</script>
+
+
+<script>
+
+
+
+$('.activate').hide();
+
+var pharmacyId = getUrlVars()["pharmacyId"];
+
+
+	$(document).ready(function(){
+		
+		$(".drop").hover(function(){
+			 $("#"+this.id+" div").css("display", "block");
+				
+				
+		    }, function(){
+				
+				 $(".dropdownContain").css("display", "none");	
+				
+		    
+		});
+		
+	/* 	addHeaderFooter(); */
+		$('.activate').hide();
+		
+		var targetUrl = Constants.get("BASE_URL")+Constants.get("FETCH_PHARMACY_DETAILS")+pharmacyId;
+		$.ajax({
+		url  : targetUrl,
+		type : 'GET',
+	    contentType: "application/json",
+	    success : function(data){
+	    	
+	    	$('#branchName').html(data.name);
+	    	$('#branchCity').html(data.city);
+	    	$('#branchCountry').html(data.country);
+	    	$('#branchState').html(data.state);
+	    	$('#branchPin').html(data.pinCode);
+	    	$('#branchPhone1').html(data.phoneBusiness);
+	    	$('#branchFax').html(data.fax);
+	    	
+	    $.each(data.branches, function(i,data){
+	    	
+	    	var html = '<tr><td>'+data.branchName+'</td>';
+	    		html += '<td>'+data.branchCode+'</td>';
+	    		html += '<td>'+data.city+'</td>';
+	    		/* html += '<td>'+data.state+'</td>';
+	    		 */
+	    		html += '<td>'+data.country+'</td>';
+	    		html += '</tr>' ;
+	    		$('#branches').append(html);
+	    });	
+	    	
+	    	
+	    	
+	    	
+	    //TODO : use this for activating deactivating	
+	    	if(data.accountState == 'ACTIVE'){
+	    		$('#deActivate').show();
+	    	}else{
+	    		$('#activate').show();
+	    	}
+	    	
+	    	
+			}
+		}); 
+		
+	//	updatePatientAccountState();
+	});
+	
+	function updatePatientAccountState(){
+		$('html').delegate('.activate', 'click', function(){
+		
+			var activeStatus = $(this).attr('id');
+			if(activeStatus == 'activate'){
+				var targetUrl = Constants.get("BASE_URL")+Constants.get("UPDATE_PHARMACY_STATE")+patientId+'/true';
+			}else{
+				var targetUrl = Constants.get("BASE_URL")+Constants.get("UPDATE_PHARMACY_STATE")+patientId+'/false';
+			}
+			
+			alert($(this).attr('id'));
+			$.ajax({
+				url  : targetUrl,
+				type : 'GET',
+			    contentType: "application/json",
+			    success : function(){
+			    	$('.activate').toggle();
+					}
+				}); 
+		});
+	}
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+
+ <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><ahref="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> <!-- Change your text logo here --> 
+          </div>
+
+
+		<!-- <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm logo-content"><a class="logo-text"href="index.html">THE DOCS AROUND THE CLOCK</a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Docs Around</b>The Clock</div> Change your text logo here 
+        </div> -->
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+            <nav class="main_navigation">
+              <ul>
+                <li class="drop"  id="patient">
+					<a href="#" class="droptab">PATIENTS</a>
+					<div class="dropdownContain" id="patient-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+							<a href="addPatient.html">	<li><span>Add</span></li></a>
+								<a href="managePatients.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop"  id="pharmacy">
+					<a href="#"   class="droptab">PHARMACY</a>
+					<div class="dropdownContain" id="pharmacy-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addPharmacy.html"><li><span>Add</span></li></a>
+								<a href="managePharmacy.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+			
+				</li>
+				<li class="drop" id="hospital">
+					<a href="#"  class="droptab" id="hospital">HOSPITALS</a>
+					<div class="dropdownContain" id="hospital-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addHospital.html"><li><span>Add</span></li></a>
+								<a href="manageHospital.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop">
+				<a href="index.html"  class="droptab userLogout">Logout</a>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+  
+
+  
+  </div>
+
+</header>
+<body style=" background:url(images/b.png)" > 
+
+<div class="addContentHeader"><span> PHARMACY DETAILS</span></div>
+<div class="popup_block"> 
+	<div class="left addContentList">
+		<table class="addcontent-tab"  border="1">
+			<tr class="addcontent-tabHeader">
+				<td colspan="3">pharmacy Details</td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Name</td>
+				<td>:</td>
+				<td id="branchName"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>City</td>
+				<td>:</td>
+				    <td id="branchCity"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>State</td>
+				<td>:</td>
+				 <td id="branchState"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Country</td>
+				<td>:</td>
+				 <td id="branchCountry"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>PinCode</td>
+				<td>:</td>
+			<td id="branchPin"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Business Phone1</td>
+				<td>:</td>
+				<td id="branchPhone1"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Fax</td>
+				<td>:</td>
+			 <td id="branchFax"></td>
+			</tr>
+		</table>
+	</div>
+	<div class="left addContentList">
+		<table class="addcontent-tab" id="branches" border="1">
+			<tr class="addcontent-tabHeader">
+				<td>Name</td>
+				<td>Code</td>
+				<td>City</td>
+				<td>Country</td>
+			</tr>
+			<!-- <tr class="addcontent-tabcontent">
+				<td>Mangalore branch</td>
+				<td>FORTIS003</td>
+				<td>Mangalore</td>
+				<td>Karnataka</td>
+				
+			</tr> -->
+		</table>
+	</div>
+	
+ 
+ 
+ 
+		
+ 
+ 
+ 
+
+</div>
+</div>
+
+
+</div>
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>The Docs</b>Around The Clock</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa"></i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>THE DOCS AROUND THE CLOCK &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+
+ <!-- <div id="footer"></div> -->
+</body>
+</html>

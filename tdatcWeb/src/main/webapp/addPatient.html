@@ -1,0 +1,466 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docs Around The Clock- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/constants.js"></script>
+
+<style>
+
+
+
+
+.viewPatients:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 1px;
+    width: 100%;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+</style>
+
+<script>
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var patient_ph = $("#patient_ph").val();
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    else if(patient_ph.length>9){
+    	return false;
+    }
+    return true;
+}
+
+
+
+function isfaxNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var patient_fax = $("#patient_fax").val();
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    else if(patient_fax.length>30){
+    	return false;
+    }
+    return true;
+}
+
+
+
+$(document).ready(function(){
+		
+		$(".form-control").click(function(){
+			$(".error").hide();	
+		});
+		
+		$("#tab").hide;
+		$(".drop").hover(function(){
+			 $("#"+this.id+" div").css("display", "block");
+				
+		    }, function(){
+				 $(".dropdownContain").css("display", "none");	
+		});
+		
+		$("#add").click(function(){
+			
+			 var hasError=false;
+			$(".error").hide();
+	       // var hasError = false;
+	       
+	 
+	     //   if(hasError == true) { return false; }
+	        
+	        var patient_firstname = $("#patient_firstname").val();
+	        if(patient_firstname == '') {
+	            $("#patient_firstname").after('<span class="error" ><font face="normal" color="red">Please Enter Your FirstName.</font></span>');
+	         //   hasError = true;
+	           // return false;
+	        }
+	       
+	        
+	        
+	        
+	        var patient_lastname = $("#patient_lastname").val();
+	        if(patient_lastname  == '') {
+	            $("#patient_lastname").after('<span class="error" ><font face="normal" color="red">Please Enter Your LastName.</font></span>');
+	          //  hasError = true;
+	          //  return false;
+	        }
+	        
+	        
+	        
+	        var patient_city = $("#patient_city").val();
+	        if(patient_city == '') {
+	            $("#patient_city").after('<span class="error" ><font face="normal" color="red">Please Enter Your City.</font></span>');
+	           // hasError = true;
+	           // return false;
+	        }
+	 
+	        var patient_state = $("#patient_state").val();
+	        if(patient_state == '') {
+	            $("#patient_state").after('<span class="error" ><font face="normal" color="red">Please Enter Your State.</font></span>');
+	          //  hasError = true;
+	          //  return false;
+	        }
+	        
+	        
+
+	        var patient_country = $("#patient_country").val();
+	        if(patient_country == '') {
+	            $("#patient_country").after('<span class="error"><font face="normal" color="red">Please Enter Your Country.</font></span>');
+	          //  hasError = true;
+	          //  return false;
+	        }
+	        
+	        
+	        
+	        
+
+	        var patient_address = $("#patient_address").val();
+	        if( patient_address== '') {
+	            $("#patient_address").after('<span class="error" ><font face="normal" color="red">Please Enter Your Address.</font></span>');
+	           // hasError = true;
+	          //  return false;
+	        }
+	        
+	        
+	        
+	        var patient_ph = $("#patient_ph").val();
+	        if(patient_ph == '') {
+	            $("#patient_ph").after('<span class="error"><font face="normal" color="red">Please Enter Your phone  no.</font></span>');
+	          //  hasError = true;
+	           // return false;
+	        }
+	        
+	        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	        var emailaddressVal = $("#patient_email").val();
+	        if(emailaddressVal == '') {
+	            $("#patient_email").after('<span class="error" ><font face="normal" color="red">Please Enter Your Email Address.</font></span>');
+	           // hasError = true;
+	          // return false;
+	            
+	        }
+	 
+	        if(!emailReg.test(emailaddressVal)) {
+	            $("#patient_email").after('<span class="error"   ><font face="normal" color="red">Enter a Valid Email Address.</font></span>');
+	            //hasError = true;
+	          //  return false;
+	        }
+	        
+	        var patient_fax = $("#patient_fax").val();
+	        if(patient_fax == '') {
+	            $("#patient_fax").after('<span class="error" style="color:red"><font face="normal" color="red">Please Enter Your fax.</font></span>');
+	          //  hasError = true;
+	          //  return false;
+	        }
+	        
+	      
+	        var gender = $("#gender").val();
+	        if(gender == 'Gender') {
+	            $("#gender").after('<span class="error" ><font face="normal" color="red">Please Enter Your gender.</font></span>');
+	           // hasError = true;
+	            return false;
+	        }
+	 
+	      
+	      
+			
+	        if(hasError==true)
+				
+			{
+			return false;
+			}
+			
+			
+			 var targetUrl = Constants.get("BASE_URL")+Constants.get("ADD_PATIENT");
+			 
+			 var data={
+			 
+			            "notificationAlert":true,
+						 "isPrimarySubscriber":true,
+						 "assesmentCompletionAlert":true,
+						 "assesmentNotificationAlert":true,
+						 "totalAmountPaid":0,
+						 "healthPlanId":1 ,
+					      user : {
+					     firstName: $("#patient_firstname").val(),
+					     lastName:$("#patient_lastname").val(),
+					     city: $("#patient_city").val(),
+					     state: $("#patient_state").val(),
+					     country: $("#patient_country").val(),
+					     address1: $("#patient_address").val(),
+					     phonePersonel: $("#patient_ph").val(),
+					     fax: $("#patient_fax").val(),
+					     accountState:'ACTIVE',
+					     emailAddress:$('#patient_email').val(),
+					     gender:$('#gender').val(),
+					     user_type:'PT'
+					     }
+					    
+					     
+						 
+         			 }
+			             var targetData = JSON.stringify(data);
+			             /* document.write(targetData); */
+			                    $.ajax({
+			                   
+									url  : targetUrl,
+									type : 'POST',
+							        contentType: "application/json",
+							        data : targetData,
+							        success : function(data){
+							        	alert(data.id+"    "+data.status);
+							        	/* alert(typeof(data)); */
+							        	if(data.status =='success'){
+							        		
+							        		//alert("control come here");
+							        		
+							        		var file_data = $("#uploadImage1").prop("files")[0];   
+							        		var form_data = new FormData();                  
+							        		form_data.append("photoFile", file_data);             
+							        		  $.ajax({
+							        			    async:false,
+							        		        url:Constants.get("BASE_URL")+"/rest/patient/updatePatientImg/"+data.user_id,
+							        		        dataType:"json",
+							        		        cache : false,
+							        		        contentType : false,
+							        		        processData : false,
+							        		        data:form_data, 
+							        		        type:'POST',
+							        		        success : function(response){
+							        		        alert(response);
+							        		        window.location = 'managePatients.html';
+							        		        }
+							        		 });
+							        		
+							         //	window.location = 'managePatients.html';
+							        	}else{
+							        		alert('Oops !... Something went wrong.');
+							        	} 
+							        }
+								});
+			
+					})
+		
+});
+	
+</script>
+
+
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+    
+     <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><a href="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> <!-- Change your text logo here --> 
+          </div>
+
+		<!-- <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm logo-content"><a class="logo-text"href="index.html">THE DOCS AROUND THE CLOCK</a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> Change your text logo here 
+        </div> -->
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+             <nav class="main_navigation">
+              <ul>
+              
+              
+              <li class="drop"  id="patient">>
+					<a href="#"   class="droptab">PATIENT</a>
+					<div class="dropdownContain" id="patient-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addPatient.html"><li><span>Add</span></li></a>
+								<a href="managePatients.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+			
+				</li>
+              
+              
+                
+				<li class="drop"  id="pharmacy">
+					<a href="#"   class="droptab">PHARMACY</a>
+					<div class="dropdownContain" id="pharmacy-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addPharmacy.html"><li><span>Add</span></li></a>
+								<a href="managePharmacy.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+			
+				</li>
+				<li class="drop" id="hospital">
+					<a href="#"  class="droptab" id="hospital">HOSPITALS</a>
+					<div class="dropdownContain" id="hospital-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addHospital.html"><li><span>Add</span></li></a>
+								<a href="manageHospital.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop">
+				<a href="index.html"  class="droptab" style="color:skyblue">Logout</a>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+ 
+
+</header>
+<body style=" background:url(images/bg.png)" > 
+
+
+<div class="popup_block"> 
+	<div class="left addContentList">
+		<table class="addpatientleft-tab">
+			<tr class="addcontent-tabHeader">
+				<td colspan="2"><font face="times new  roman">PATIENT DETAILS</font></td>
+			</tr>
+			<tr>
+			     <td><input  type="text" id="patient_firstname" class="form-control" placeholder="First Name" ></td>
+			</tr>
+			
+			
+			<tr>
+			     <td><input  type="text" id="patient_lastname" class="form-control" placeholder="Last Name" ></td>
+			</tr>
+				
+			<tr>
+			    <td><input  type="text" id="patient_city" class="form-control"  placeholder="City" ></td>
+			</tr>	
+			
+			
+			
+			<tr>
+			    <td><input  type="text" id="patient_state" class="form-control"  placeholder="State"></td>
+			</tr>
+			
+			
+			<tr>
+			    <td><input  type="text" id="patient_country"  class="form-control"  placeholder="Country"></td>
+			</tr>
+			
+			<tr>
+			    <td><input  type="text" id="patient_address" class="form-control"  placeholder="Address"></td>
+			</tr>	
+			
+			<tr>
+			    <td><input  type="text" id="patient_ph" class="form-control"  placeholder="Phone" onkeypress="return isNumber(event)"></td>
+			</tr>
+			
+			
+			<tr>
+			    <td><input  type="text" id="patient_email" class="form-control"  placeholder="email Address"></td>
+			</tr>
+			
+			
+			
+			<tr>
+			    <td><input  type="text" id="patient_fax" class="form-control"  placeholder="Fax"    onkeypress="return isfaxNumber(event)"></td>
+			</tr>
+			
+			
+			<tr><td> <select  class="form-control"  id="gender" >
+			 	 <option>Gender</option>
+               	 <option value="M">Male</option>
+               	 <option value="F">Female</option>
+               	 <option value="TG">TransGender</option>
+              </select></td>
+			</tr>
+			<tr><td class="submit-btn-wrapper"><div class="comn-btn left" style="width:100%" id="add">ADD</div></td></tr>
+					
+		   </table>
+	</div>
+	
+	<div  class="left imgaddContentList">
+	<table >
+	
+<tr><td><img id="uploadPreview1" src="images/pic.png" width="200px"height="160px" style="border:3px solid skyblue;"><br /></td></tr>
+	<tr>
+	<!-- <td style="color:gray;"><input id="uploadImage1" type="file" name="upload" onchange="PreviewImage(1);" /></td> -->
+	<td><div class="fileUpload btn btn-primary"><span>Upload Photo</span> 
+	<input type="file" class="upload"  id="uploadImage1"  onchange="PreviewImage(1);" /></div><td>
+    
+   
+
+	</tr>
+
+</table>
+	
+ 
+	</div>
+</div>
+
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>The Docs </b>Around the Clock</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa"></i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>THE DOCS AROUND THE CLOCK &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+<script type="text/javascript">
+    function PreviewImage(no) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage"+no).files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview"+no).src = oFREvent.target.result;
+        };
+    }
+</script>
+</body>
+</html>

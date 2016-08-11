@@ -1,0 +1,511 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docs Around The Clock- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/constants.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/commons.js"></script>
+<script>
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var phone= $("#phone").val();
+  
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    else if(phone.length>9){
+    	return false;
+    }
+    return true;
+}
+
+function ispinNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var pinCode = $("#pinCode").val();
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    else if(pinCode.length>5){
+    	return false;
+    }
+    return true;
+}
+
+
+function ispoppinNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var pop_pinCode = $("#pop_pinCode").val();
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    else if(pop_pinCode.length>5){
+    	return false;
+    }
+    return true;
+}
+
+
+function isfaxNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var fax = $("#fax").val();
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    else if(fax.length>30){
+    	return false;
+    }
+    return true;
+}
+
+
+
+
+
+$(document).ready(function(){
+	
+	
+	$(".form-control").click(function(){
+		$(".error").hide();	
+	});
+		
+		$(".drop").hover(function(){
+			 $("#"+this.id+" div").css("display", "block");
+				
+				
+		    }, function(){
+				
+				 $(".dropdownContain").css("display", "none");	
+				
+		    
+		});
+		
+		
+		$("#tab").hide;
+		
+		/* addHeaderFooter(); */
+		
+		$("#popadd").click(function(){
+			
+			
+			  var pop_name = $("#pop_name").val();
+		        if(pop_name == '') {
+		            $("#pop_name").after('<span class="error" style="color:red">Please Enter   name.</span>');
+		            hasError = true;
+		        }
+		        
+		        var pop_city = $("#pop_city").val();
+		        if(pop_city == '') {
+		            $("#pop_city").after('<span class="error" style="color:red">Please Enter city.</span>');
+		            hasError = true;
+		        }
+		        
+		        var pop_branchCode = $("#pop_branchCode").val();
+		        if(pop_branchCode == '') {
+		            $("#pop_branchCode").after('<span class="error" style="color:red">Please Enter Your code.</span>');
+		            hasError = true;
+		        }
+		        
+		        var pop_country = $("#pop_country").val();
+		        if(pop_country == '') {
+		            $("#pop_country").after('<span class="error" style="color:red">Please Enter  country.</span>');
+		            hasError = true;
+		        }
+		        
+		        var pop_pinCode = $("#pop_pinCode").val();
+		        if(pop_pinCode == '') {
+		            $("#pop_pinCode").after('<span class="error" style="color:red">Please Enter pincode.</span>');
+		            hasError = true;
+		         
+		        }
+		        
+		        
+		        else{
+		        	
+		        	
+		        	$(".w_btn").trigger("click"); 
+		        }
+		        
+		    
+		    	
+		  var html = '<tr class="branchData"> <td class="branchName" align="center">'+$("#pop_name").val()+'</td> <td class="branchCode" align="center">'+$("#pop_branchCode").val()+'</td> <td class="branchCity"align="center">'+$("#pop_city").val()+'</td> <td class="branchCountry"align="center">'+$("#pop_country").val()+'</td></tr>';
+			/* $(".w_btn").trigger("click"); */
+			$('#branches').append(html);
+		    /* $(".bs-example bs-example-tabs").hide(); */
+		  
+			
+			/* $(".popup_block").hide(); */
+			});
+		
+		
+		/* $(".showpopup").click(function(){
+			$(".popup_block").show();
+		}); */
+		
+		/* $("#cancel").click(function(){
+			$(".popup_block").hide();
+		});
+		 */
+		
+		$("#add").click(function() {
+			var hasError=false;
+			  var name = $("#name").val();
+		        if(name == '') {
+		            $("#name").after('<span class="error" style="color:red">Please Enter Your  name.</span>');
+		            hasError = true;
+		        }
+			
+		        
+		        var city = $("#city").val();
+		        if(city == '') {
+		            $("#city").after('<span class="error" style="color:red">Please Enter Your  city.</span>');
+		            hasError = true;
+		        }
+			
+		        var state = $("#state").val();
+		        if(state == '') {
+		            $("#state").after('<span class="error" style="color:red">Please Enter Your  state.</span>');
+		            hasError = true;
+		        }
+			
+			
+		        var country = $("#country  ").val();
+		        if(country == '') {
+		            $("#country").after('<span class="error" style="color:red">Please Enter Your  country.</span>');
+		            hasError = true;
+		        }
+			
+		        
+		        var pinCode = $("#pinCode").val();
+		        if(pinCode == '') {
+		            $("#pinCode").after('<span class="error" style="color:red">Please Enter Your pincode.</span>');
+		            hasError = true;
+		        }
+			
+			
+		        
+		        
+		        var phone = $("#phone").val();
+		        if(phone == '') {
+		            $("#phone").after('<span class="error" style="color:red">Please Enter Your phone.</span>');
+		            hasError = true;
+		        }
+			
+		        
+		        
+		        var fax = $("#fax").val();
+		        if(fax == '') {
+		            $("#fax").after('<span class="error" style="color:red">Please Enter Your fax.</span>');
+		            hasError = true;
+		        }
+			
+			
+		        if(hasError==true)
+					
+				{
+				return false;
+				}
+        var targetUrl = Constants.get("BASE_URL")+Constants.get("ADD_HOPITAL");
+               var data={
+				                name: $("#name").val(),
+				                city: $("#city").val(),
+				                state: $("#state").val(),
+				                country:  $("#country").val(),
+				                pinCode: $("#pinCode").val(),
+				                phoneBusiness: $("#phone").val(),
+				  		        fax: $("#fax").val(),
+				  		        isActive : 'ACTIVE',
+				  		        branches : loopBranches()
+				  			  }
+				  		
+				  			var  targetData = JSON.stringify(data);
+				        		
+				        		
+						$.ajax({
+							url  : targetUrl,
+							type : 'POST',
+					        contentType: "application/json",
+					        data : targetData,
+					        success : function(data){
+					        	if(data = 'success'){
+					        		window.location = 'manageHospital.html';
+					        	}
+					        }
+						});
+					});
+});
+	
+	function loopBranches(){
+		
+		
+		var branchNames = [];
+		var branchCodes = [];
+		var branchCities = [];
+		var branchCountries = [];
+		var branches = [];
+		
+		$('#branches tr.branchData').each(function(i, row){
+			
+			$(this).find('td.branchName').each(function(){
+				branchNames.push($(this).html());
+			});
+			$(this).find('td.branchCode').each(function(){
+				branchCodes.push($(this).html());
+			});
+			$(this).find('td.branchCity').each(function(){
+				branchCities.push($(this).html());
+			});
+			$(this).find('td.branchCountry').each(function(){
+				branchCountries.push($(this).html());
+			});
+			
+		});
+		
+		for(i =0 ; i < $('#branches tr.branchData').length ; i++){
+			
+			var branch =  {branchName : branchNames[i],
+	     	               branchCode : branchCodes[i],
+		     	           city: branchNames[i],
+		     	           country : branchCities[i],
+		     	           isActive : 'ACTIVE',};
+			
+			branches.push(branch);
+		}
+		
+		
+		return branches;
+	}
+</script>
+
+
+
+
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+    
+    
+    
+     <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><ahref="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> <!-- Change your text logo here --> 
+          </div>
+
+		<!-- <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm logo-content"><a class="logo-text"href="index.html">THE DOCS AROUND THE CLOCK</a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>The Docs</b>Around The Clock</div> Change your text logo here 
+        </div> -->
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+           
+            <nav class="main_navigation">
+              <ul>
+                <li class="drop"  id="patient">
+					<a href="#" class="droptab">PATIENTS</a>
+					<div class="dropdownContain" id="patient-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+							<a href="addPatient.html">	<li><span>Add</span></li></a>
+								<a href="managePatients.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop"  id="pharmacy">
+					<a href="#"   class="droptab">PHARMACY</a>
+					<div class="dropdownContain" id="pharmacy-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addPharmacy.html"><li><span>Add</span></li></a>
+								<a href="managePharmacy.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+			
+				</li>
+				<li class="drop" id="hospital">
+					<a href="#"  class="droptab" id="hospital">HOSPITALS</a>
+					<div class="dropdownContain" id="hospital-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addHospital.html"><li><span>Add</span></li></a>
+								<a href="manageHospital.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop">
+				<a href="index.html"  class="droptab">Logout</a>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+  
+
+  
+  </div>
+
+</header>
+<body style=" background:url(images/b.png)" > 
+
+<div class="addContentHeader"><span> ADD HOSPITALS</span></div>
+<div class="popup_block"> 
+	<div class="left addContentList">
+		<table class="addcontentleft-tab">
+			<tr class="addcontent-tabHeader">
+				<td colspan="2">Hospital Details</td>
+			</tr>
+			<tr>
+			     <td><input  type="text" id="name" class="form-control" placeholder="Name" ></td>
+			</tr>
+				
+			<tr>
+			    <td><input  type="text" id="city" class="form-control"  placeholder="City" ></td>
+			</tr>	
+			 <tr>
+			    <td><input  type="text" id="state" class="form-control"  placeholder="State"></td>
+			</tr>
+				
+			<tr>
+			    <td><input  type="text" id="country"  class="form-control"  placeholder="Country"></td>
+			</tr>	
+			<tr>
+			    <td><input  type="text" id="pinCode" class="form-control"  placeholder="Pincode" onkeypress="return ispinNumber(event)"></td>
+			</tr>
+			
+		
+			<tr>
+			    <td><input  type="text" id="phone" class="form-control"  placeholder="phone" onkeypress="return isNumber(event)"></td>
+			</tr>
+			
+			<tr>
+			    <td><input  type="text" id="fax" class="form-control"  placeholder="fax"  onkeypress="return isfaxNumber(event)"></td>
+			</tr>
+			
+			
+			
+			
+			<tr>
+			    <td class="submit-btn-wrapper">
+					<div class="comn-btn left" id="add">ADD</div>
+					<a class="comn-btn right get_the_app" href="#signup-branches" data-toggle="modal" data-target=".bs-modal-sm-branches" style="text-decoration:none">ADD BRANCHES</a>
+				</td>
+			</tr>			
+		</table>
+	</div>
+	<div class="left addContentList">
+		<table class="addcontent-tab" id="branches" border="1">
+			<tr class="addcontent-tabHeader">
+				<td>Name</td>
+				<td>Code</td>
+				<td>City</td>
+				<td>State</td>
+			</tr>
+			
+		</table>
+	</div>
+	
+ 
+ 
+ 
+		
+ 
+ 
+ 
+
+</div>
+</div>
+
+
+</div>
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>The Docs</b>Around The Clock</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa"></i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>THE DOCS AROUND THE CLOCK &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+
+<!-- -->
+<div class="modal fade bs-modal-sm-branches" id="myModalBranches" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-branches">
+    <div class="modal-content">
+       
+        <div class="bs-example bs-example-tabs">
+			   <table class="addcontentbranch-tab">
+				  <tbody>
+				    <tr class="addcontent-tabHeader">
+						<td colspan="2">Add Branch Details</td>
+					</tr>
+					<tr>
+						 <td><input type="text" id="pop_name" class="form-control" placeholder="Name"></td>
+					</tr>
+						
+					<tr>
+						<td><input type="text" id="pop_city" class="form-control" placeholder="City"></td>
+					</tr>	
+					
+					<tr>
+						<td><input type="text" id="pop_branchCode" class="form-control" placeholder="Code"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" id="pop_country" class="form-control" placeholder="Country"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" id="pop_pinCode" class="form-control" placeholder="Pincode"  onkeypress="return ispoppinNumber(event)"></td>
+					</tr>
+					<tr>
+						<td class="submit-btn-wrapper">
+							<div class="comn-btn left" id="popadd">ADD</div>
+						</td>
+					</tr>			
+				</tbody>
+			</table>
+        </div>
+      
+      <div class="modal-footer">
+        <center>
+        <a href="#" class="w_btn" data-dismiss="modal">Close</a>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- <div id="footer"></div> -->
+</body>
+</html>

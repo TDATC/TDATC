@@ -1,0 +1,172 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IamWell- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/commons.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<style>
+a:hover{
+color:white;
+}
+</style>
+
+<script>
+
+
+
+$(document).ready(function(){
+  	$(".drop").hover(function(){
+	 $("#"+this.id+" div").css("display", "block");
+		
+		
+    }, function(){
+		
+		 $(".dropdownContain").css("display", "none");	
+		
+    
+});
+});
+
+
+function logout(){
+	alert("logout");
+	document.logout_frm.action='http://localhost:8080/tdatc'+'/'+'rest/patient/logout';
+	/* document.logout_frm.action='http://app.skoruz.com:5959/tdatc'+'/'+'rest/patient/logout'; */
+	document.logout_frm.submit();
+}
+</script>
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+
+ <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><a href="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> <!-- Change your text logo here --> 
+          </div>
+
+
+		<!-- <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm logo-content"><a class="logo-text" href="index.html">THE DOCS AROUND THE CLOCK</a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> Change your text logo here 
+        </div> -->
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+            <nav class="main_navigation">
+              <ul>
+                <li class="drop"  id="patient">
+					<a href="#" class="droptab">PATIENTS</a>
+					<div class="dropdownContain" id="patient-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+							<a href="addPatient.html">	<li><span>Add</span></li></a>
+								<a href="managePatients.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop"  id="pharmacy">
+					<a href="#"   class="droptab">PHARMACY</a>
+					<div class="dropdownContain" id="pharmacy-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addPharmacy.html"><li><span>Add</span></li></a>
+								<a href="managePharmacy.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+			
+				</li>
+				<li class="drop" id="hospital">
+					<a href="#"  class="droptab" id="hospital">HOSPITALS</a>
+					<div class="dropdownContain" id="hospital-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addHospital.html"><li><span>Add</span></li></a>
+								<a href="manageHospital.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop">
+				<form id="logout_frm" name="logout_frm" method="post">
+				<a href="#"  class="droptab userLogout" onclick="logout();">Logout</a>
+				</form>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+  
+
+  
+  </div>
+
+</header>
+ <body style=" background:url(images/b.png)" > 
+
+
+<div class="addContentHeader"><span>WELLCOME</span></div>
+<div class="popup_block_dashboard"> 
+	<div>
+		<ul class="right">
+			<li><a href="managePatients.html" style="text-decoration: none;">MANAGE PATIENTS</a></li>
+			<li><a href="manageHospital.html"  style="text-decoration: none">MANAGE HOSPITALS</a></li>
+			<li><a href="managePharmacy.html"   style="text-decoration: none">MANAGE PHARMACY</a></li>
+			<li><a href="manageaudiovideo.html"   style="text-decoration: none">MANAGE AUDIO / VIDEO</a></li>
+			<li><a href="payment.html"   style="text-decoration: none">MANAGE pAYMENTS</a></li>
+		</ul>
+	</div>
+	
+ 
+ 
+ 
+		
+ 
+ 
+ 
+
+</div>
+</div>
+
+
+</div>
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>The Docs</b>Around The Clock</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa">&#xf028;</i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>The Docs Around The Clock &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+
+ <!-- <div id="footer"></div> -->
+</body>
+</html>

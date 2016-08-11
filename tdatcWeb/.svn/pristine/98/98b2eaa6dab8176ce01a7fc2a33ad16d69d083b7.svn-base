@@ -1,0 +1,326 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docs Around The Clock- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="js/constants.js"></script>
+<script src="js/commons.js"></script>
+<script>
+
+
+ var patientId = getUrlVars()["patientId"]; 
+
+
+	$(document).ready(function(){
+		
+		$(".drop").hover(function(){
+			 $("#"+this.id+" div").css("display", "block");
+				
+				
+		    }, function(){
+				
+				 $(".dropdownContain").css("display", "none");	
+				
+		    
+		});
+		
+		$('.active').hide(); 
+		
+		/* $('.carepartenerInfo').hide();
+		 */
+		/* $('.deActivate').hide(); */
+		 
+		var targetUrl = Constants.get("BASE_URL")+Constants.get("FETCH_PATIENT_DETAILS")+patientId;
+		var imageUrl = Constants.get("BASE_URL")+Constants.get("IMAGE_URL");
+		
+		$.ajax({
+		url  : targetUrl,
+		type : 'GET',
+	    contentType: "application/json",
+	    success : function(data){
+	    	$('#emailAddress').html(data.emailAddress);
+	    	$('#name').html(data.firstName);
+	    	$('#status').html(data.accountState);
+	    	$('#gender').html(data.gender);
+	    	$('#patientImg').attr("src",imageUrl+data.photoPath);
+	    	
+	    	$('#address').html('<table class="addcontent-tab" id="branches" ><tr class="details-tabcontent"><td>Address1</td> <td>:</td><td>'+data.address1+'</td></tr><tr class="details-tabcontent"> <td>City</td> <td>:</td> <td>'+data.city+'</td></tr><tr class="details-tabcontent"><td>State</td> <td>:</td> <td>'+data.state+'</td></tr><tr class="details-tabcontent"><td>Country</td> <td>:</td> <td>'+data.country+'</td></tr> </table>');
+	    	
+	    	alert(data.photoPath);
+	    	
+	    	if(data.accountState == 'ACTIVE'){
+	    		$('#deActivate').show();
+	    	}else{
+	    		$('#activate').show();
+	    	}
+			}
+		}); 
+		
+		updatePatientAccountState();
+		fetchCarePartnerDetails();
+		ViewCarePartnerDetails();
+	});
+	
+	function updatePatientAccountState(){
+		$('html').delegate('.active', 'click', function(){
+		
+			var activeStatus = $(this).attr('id');
+			if(activeStatus == 'activate'){
+				var targetUrl = Constants.get("BASE_URL")+Constants.get("UPDATE_PATIENT_STATE")+patientId+'/true';
+			}else{
+				var targetUrl = Constants.get("BASE_URL")+Constants.get("UPDATE_PATIENT_STATE")+patientId+'/false';
+			}
+			
+			$.ajax({
+				url  : targetUrl,
+				type : 'GET',
+			    contentType: "application/json",
+			    success : function(){
+			    	$('.active').toggle();
+					}
+				}); 
+		});
+	}
+	
+	function fetchCarePartnerDetails(){
+		var targetUrl = Constants.get("BASE_URL")+Constants.get("FETCH_PATIENT_CARE_PARTNER_DETAILS")+patientId;
+		
+		$.ajax({
+			url : targetUrl,
+			type : 'GET',
+			contentType : "application/json",
+			success : function(data){
+			      
+				   // alert(data.length);
+				   
+			      if(data.length < 1){
+				    	//alert("Greater Data");
+			    	  $('.carepartenerInfo').hide();
+				    }
+				    
+			      $.each(data,function(key,value){
+			    	 var html = '<tr class="details-tabcontent"><td>'+value.firstName+' '+value.lastName+'</td><td>:</td><td><a class=viewCarePartner id='+value.id+'>View</a></td></tr>';
+			    	 $('#CarePartner').append(html);
+			      })
+				 
+	
+			}
+		})
+	}
+	
+	function ViewCarePartnerDetails(){
+		$('html').delegate('.viewCarePartner','click',function(){
+			window.location='patientDetails.html?patientId='+$(this).attr('id');
+			
+		})
+	}
+	
+</script>
+
+
+
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+    
+    
+    
+     <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><ahref="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> <!-- Change your text logo here --> 
+          </div>
+
+		<!-- <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm logo-content"><a class="logo-text"href="index.html">THE DOCS AROUND THE CLOCK</a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Docs Around</b>The Clock</div> Change your text logo here 
+        </div> -->
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+         
+            <nav class="main_navigation">
+              <ul>
+                <li class="drop"  id="patient">
+					<a href="#" class="droptab">PATIENTS</a>
+					<div class="dropdownContain" id="patient-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+							<a href="addPatient.html">	<li><span>Add</span></li></a>
+								<a href="managePatients.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop"  id="pharmacy">
+					<a href="#"   class="droptab">PHARMACY</a>
+					<div class="dropdownContain" id="pharmacy-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addPharmacy.html"><li><span>Add</span></li></a>
+								<a href="managePharmacy.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+			
+				</li>
+				<li class="drop" id="hospital">
+					<a href="addHospital"  class="droptab" id="hospital">HOSPITALS</a>
+					<div class="dropdownContain" id="hospital-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addHospital.html"><li><span>Add</span></li></a>
+								<a href="manageHospital.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop">
+					<a href="index.html"  class="droptab userLogout">Logout</a>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+  
+
+  
+  </div>
+
+</header>
+<body style=" background:url(images/b.png)" > 
+
+<div class="addContentHeader"><span> PATIENT INFORMATION</span></div>
+<div class="popup_block"> 
+	<div class="left patientInfoLeft">
+		<table class="addcontent-tab patient-tab" >
+			<tr class="addcontent-tabHeader">
+				<td colspan="3">Patient Details</td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Name</td>
+				<td>:</td>
+				<td id="name"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Gender</td>
+				<td>:</td>
+				<td id="gender"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Email Address</td>
+				<td>:</td>
+				<td id="emailAddress"></td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Phone Number</td>
+				<td>:</td>
+				<td>9620282086</td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Status</td>
+				<td>:</td>
+			<td id="status"></td>
+			</tr>
+		</table>
+	</div>
+	<div class="left patientInfoMiddle">
+		<table class="addcontent-tab patient-tab" >
+			<tr class="addcontent-tabHeader">
+				<td colspan="1">Address</td>
+			</tr>
+			<!-- <tr class="details-tabcontent">
+				<td>City</td>
+				<td>:</td>
+				<td>Bangalore</td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>State</td>
+				<td>:</td>
+				<td>Karnataka</td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Country</td>
+				<td>:</td>
+				<td>India</td>
+			</tr>
+			<tr class="details-tabcontent">
+				<td>Pin Code</td>
+				<td>:</td>
+				<td>560102</td>
+			</tr> -->
+			
+			<tr><td> <div   class="addrs" id="address"> </div></td></tr>
+     
+			
+			
+		</table>
+	</div>
+	
+	
+
+	<div class="left carepartenerInfo " id="carepartnerinfo">
+		<table class="addcontent-tab patient-tab" id="CarePartner">
+		
+			<tr class="addcontent-tabHeader">
+				<td colspan="3">Care partener Details</td>
+			</tr>
+			
+		</table>
+</div>
+
+
+
+
+<div class="left patientInfoRight">
+		<div class="patient-imgwrap" >
+			<img class="patientImg" src="http://192.168.1.103:8080/amWellWeb/images/"  alt="" id="patientImg">
+		</div>
+	</div>
+	
+ </div>
+
+
+</div>
+
+<div class="paient-inactiveWrapper">
+	<div class="comn-btn left  active" id="activate" >Activate</div>
+	<div class="comn-btn left  active" id="deActivate">de-Active</div>
+</div>
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>The Docs</b>Around The Clock</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa"></i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>THE DOCS AROUND THE CLOCK &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+
+ <!-- <div id="footer"></div> -->
+</body>
+</html>

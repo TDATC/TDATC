@@ -1,0 +1,307 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docs Around The Clock- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+
+<script src="js/constants.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+
+<style type="text/css">
+        .active  {
+        color:black;
+        background:white;
+        padding:3px;
+	    border:1px solid gray;
+	    margin:2px;
+	   text-color:blue;
+	    text-decoration:none;
+	    margin-top: 20px;
+	 
+	   
+        
+        }
+        
+        
+        #LoadingImage{
+
+        padding: 45px 463px 30px;
+
+        }
+        
+        
+    #nav{
+    text-align: right;
+    padding: 3px 4px;
+    background-color: #333;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    font-size: large;
+}
+
+
+.viewPatients:hover {
+    color: red;
+    cursor: pointer;
+}
+        
+        
+        
+      .active {
+    background: #8E877A;
+    color: white !important;
+}
+    </style>
+
+<script>
+	$(document).ready(function(){
+		$(".drop").hover(function(){
+			 $("#"+this.id+" div").css("display", "block");
+				
+				
+		    }, function(){
+				
+				 $(".dropdownContain").css("display", "none");	
+				
+		    
+		});
+		
+		/* addHeaderFooter(); */
+		
+		var targetUrl = Constants.get("BASE_URL")+Constants.get("MANAGE_PATIENT_URL");
+		 $("#LoadingImage").show();
+			$.ajax({
+			url  : targetUrl,
+			type : 'GET',
+		    contentType: "application/json",
+		    success : function(data){
+		    
+		    $.each(data, function(key,value){
+		    	var content = ' <tbody><tr> <td class="lalign" >'+value.user.user_id+'</td> <td  class="lalign">'+value.user.firstName+'</td> <td class="lalign"  >'+value.user.emailAddress+'</td> <td class="lalign"  >'+value.user.gender+'</td> <td class="lalign"  >'+value.user.country+'</td> <td  class="lalign" >'+value.user.accountState+'</td> <td class="lalign" ><a class=viewPatients id='+value.user.user_id+'  style="text-decoration:none">View</a></td></tr></tbody>';
+		    	
+		    	$('.patientDetails').append(content);
+		    	 $("#LoadingImage").hide();
+		    });	
+		    
+		  
+		    
+		    $('#data').after('<div id="nav"></div>');
+	           var rowsShown = 10;
+	           var rowsTotal = $('#data tbody tr').length;
+	        
+	           var numPages = rowsTotal/rowsShown;
+	          
+	           for( var i = 0;i < numPages;i++) {
+	               var pageNum = i + 1;
+	               $('#nav').append('<a href="#" style="width:20px;  text-decoration:none;color:white;"class="anchor"  rel="'+i+'">'+pageNum+'</a> ');
+	           }
+	           $('#data tbody tr').hide();
+	           $('#data tbody tr').slice(0, rowsShown).show();
+	           $('#nav a:first').addClass('active');
+	           $('#nav a').bind('click', function(){
+
+	               $('#nav a').removeClass('active');
+	               $(this).addClass('active');
+	               var currPage = $(this).attr('rel');
+	               var startItem = currPage * rowsShown;
+	               var endItem = startItem + rowsShown;
+	               $('#data tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
+	                       css('display','table-row').animate({opacity:1}, 1000);
+	           });
+			    
+			
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+				}
+			});
+			
+			
+			viewPatientDetails();
+	});
+	
+	function viewPatientDetails(){
+		$('html').delegate('.viewPatients','click', function(){
+			window.location = 'patientDetails.html?patientId='+$(this).attr('id');
+		});
+	}
+	
+	
+	
+	
+</script>
+
+
+
+
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+    
+     <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><ahref="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> <!-- Change your text logo here --> 
+          </div>
+
+		<!-- <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm logo-content"><a class="logo-text"href="index.html">THE DOCS AROUND THE CLOCK</a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>The Docs</b>Around The Clock</div> Change your text logo here 
+        </div> -->
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+           <nav class="main_navigation">
+              <ul>
+                <li class="drop"  id="patient">
+					<a href="#" class="droptab">PATIENTS</a>
+					<div class="dropdownContain" id="patient-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+							<a href="addPatient.html">	<li><span>Add</span></li></a>
+								<a href="managePatients.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop"  id="pharmacy">
+					<a href="#"   class="droptab">PHARMACY</a>
+					<div class="dropdownContain" id="pharmacy-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addPharmacy.html"><li><span>Add</span></li></a>
+								<a href="managePharmacy.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+			
+				</li>
+				<li class="drop" id="hospital">
+					<a href="#"  class="droptab" id="hospital">HOSPITALS</a>
+					<div class="dropdownContain" id="hospital-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								<a href="addHospital.html"><li><span>Add</span></li></a>
+								<a href="manageHospital.html"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="drop">
+					<a href="index.html"  class="droptab userLogout">Logout</a>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+
+</header>
+<body style=" background:url(images/b.png)" > 
+
+<div class="addContentHeader"><span> MANAGE PATIENTS</span></div>
+<div class="popup_block"> 
+	<div class="left manageContentList">
+		<table class="addcontent-tab patientDetails "  border="1"   id="data">
+		<thead>
+			<tr class="managePatientsaddcontent-tabHeader" >
+				<td>ID</td>
+				<td>Name</td>
+				<td>Email</td>
+				<td>Gender</td>
+				<td>Country</td>
+				<td>Account Status</td>
+				<td>Action</td>
+			</tr>
+			</thead>
+			<!-- <tr class="addcontent-tabcontent">
+				<td>1</td>
+				<td>Premchand</td>
+				<td>Bangalore</td>
+				<td>India</td>
+				<td>Active</td>
+				<td><a href="#" class="view-link">View</a></td>
+			</tr>
+			<tr class="addcontent-tabcontent">
+				<td>2</td>
+				<td>Premchand Pratti</td>
+				<td>Bangalore</td>
+				<td>India</td>
+				<td>Active</td>
+				<td><a href="#" class="view-link">View</a></td>
+			</tr> -->
+			
+			</table>
+			<table style=""width:50px">
+  <td style="text-align: center"><div id="LoadingImage" style="display: none"><img src="images/loading.gif"style=" width: 359px"; /></div></td>
+  
+  </table>
+			
+			
+		
+	</div>
+	
+ 
+ 
+ 
+		
+ 
+ 
+ 
+
+</div>
+</div>
+
+
+</div>
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>The Docs</b>Around The Clock</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa">&#xf028;</i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>THE DOCS AROUND THE CLOCK &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+
+ <!-- <div id="footer"></div> -->
+</body>
+</html>

@@ -1,0 +1,471 @@
+header{
+  width: 100%;
+  background: transparent;
+  background: url(images/banner.jpg) no-repeat center top; 
+  background-size: cover;
+}
+a{
+	text-decoration: none;
+}
+.modal-content a{
+	color:black;
+}
+.w_btn{
+padding: 10px 15px;
+  border-radius: 4px;
+}
+.w_btn:hover{
+	background: #EEEEEE;
+	text-decoration: none;	
+}
+.transparent{
+  background-color: transparent;
+  background: rgba(0, 0, 0, 0.5);
+}
+.logo-content{
+padding: 10px 0px 8px 0px;
+
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url(font.ttf);
+}
+.logo-text{
+font-family: myFirstFont;
+font-size:26px;
+color:white;
+text-decoration:none;
+}
+.logo-text:hover{
+color:white;
+text-decoration:none;
+}
+.logo-css{
+width: 280px;
+  height: 45px;
+}
+nav.main_navigation {
+  float: right;
+  margin-top: 25px;
+}
+nav.main_navigation ul li {
+  float: left;
+  list-style: none;
+  cursor:pointer;
+}
+
+.drop_list li:hover{
+background:#151a1d;
+}
+nav.main_navigation ul li a {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.banner_phone{
+  text-align: center;
+  background: url(../images/phone.jpg) top center no-repeat;
+  height: 400px;
+}
+.header_tag{
+text-align:center;
+color:#333;
+padding:20px 0px;
+}
+footer {
+  padding: 69px 0 59px;
+  text-align: center;
+  background: #0e0f10;
+}
+
+/*****************popup:start*****************/
+ .overlay{
+            background:transparent url(images/overlay.png) repeat top left;
+            position:fixed;
+            top:0px;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            z-index:100;
+        }
+        .box{
+            position:fixed;
+            top:-200px;
+            left:30%;
+            right:30%;
+            background-color:#fff;
+            color:#7F7F7F;
+            padding:20px;
+            border:2px solid #ccc;
+            -moz-border-radius: 20px;
+            -webkit-border-radius:20px;
+            -khtml-border-radius:20px;
+            -moz-box-shadow: 0 1px 5px #333;
+            -webkit-box-shadow: 0 1px 5px #333;
+            z-index:101;
+			height:200px;
+        }
+        .box h1{
+            border-bottom: 1px dashed #7F7F7F;
+            margin:-20px -20px 0px -20px;
+            padding:10px;
+            background-color:#FFEFEF;
+            color:#EF7777;
+            -moz-border-radius:20px 20px 0px 0px;
+            -webkit-border-top-left-radius: 20px;
+            -webkit-border-top-right-radius: 20px;
+            -khtml-border-top-left-radius: 20px;
+            -khtml-border-top-right-radius: 20px;
+        }
+        a.boxclose{
+            float:right;
+            width:26px;
+            height:26px;
+            background:transparent url(images/cancel.png) repeat top left;
+            margin-top:-30px;
+            margin-right:-30px;
+            cursor:pointer;
+        }
+/******************popup:end*****************/
+/*******************addAll:start**************************/
+.dropdownContain {
+  width: 160px;
+  position: absolute;
+  z-index: 2;
+  background:#fff;
+  margin-top:10px;
+  border:1px solid;
+  border-radius:5px;
+  margin-left: -15px;
+  display:none;
+  box-shadow: 0 2px 10px;
+}
+.dropOut .triangle {
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+  top: -8px;
+  left: 47%;
+}
+
+.dropOut ul {
+  float: left;
+  padding: 5px;
+  width: 100%;
+  display: inline-block;
+}
+.dropOut ul li {
+  text-align: center;
+  float: left;
+  width: 100%;
+  padding: 12px 0 10px 0px;
+  color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: background .1s ease-out;
+  -moz-transition: background .1s ease-out;
+  -ms-transition: background .1s ease-out;
+  -o-transition: background .1s ease-out;
+  transition: background .1s ease-out;
+  background: rgba(0, 0, 0, 0.5);
+    margin: 2px 0px 2px 0px;
+}
+.addContentHeader{
+text-align:center;
+padding:5px 0px 10px 0px;
+font-size:18px;
+font-weight:bold;
+color:#3b3e41;
+}
+.left{
+float:left;
+}
+.patient-tab{
+
+}
+.addcontent-tab{
+width: 95%;
+  margin: 0 auto;
+  margin-top: 10px;
+
+}
+
+
+
+.addcontent-tabvideo{
+width: 95%;
+  margin: 0 auto;
+  margin-top: 10px;
+
+}
+
+
+.addcontent-tab2{
+width: 95%;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 0px;
+}
+
+
+.addcontentregister-tab{
+width:98%;
+margin:0 auto;
+margin-top:10px;
+}
+.addcontentbranch-tab{
+width:70%;
+margin:0 auto;
+margin-top:30px;
+}
+.addcontentleft-tab{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+
+.addpatientleft-tab{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.popup_block{
+  width: 100%;
+  display: inline-block;
+  padding: 25px 0px;
+}
+.addContentList{
+width:40%;
+margin-left:5%;
+border:2px solid;
+min-height:433px;
+}
+.addPharmacyBranches{
+width:40%;
+/* margin-left:5%; */
+margin:auto;
+border:2px solid;
+min-height:433px;
+}
+.center{
+	
+	float:center;
+}
+
+
+.imgaddContentList{
+
+margin-left:30%;
+
+min-height:433px;
+}
+
+
+
+
+
+
+.addcontent-tabHeader{
+  background: #3b3e41;
+  border-color:black;
+  
+  color:white;
+}
+.addcontent-tabHeader td{
+text-align:center;
+}
+
+.managePatientsaddcontent-tabHeader {
+text-align:center;
+ background: #3b3e41;
+  border-color:black;
+  
+  color:white;
+}
+
+
+.managePatientsaddcontent-tabHeadervideo {
+text-align:center;
+ background: #3b3e41;
+  border-color:black;
+  width:100%;
+  color:white;
+}
+
+
+
+
+.managePatientsaddcontent-tabHeaderr {
+text-align:left;
+ background: #3b3e41;
+  border-color:black;
+  
+  color:white;
+}
+
+
+
+.submit-btn-wrapper{
+text-align:center;
+
+}
+
+.size{
+	
+	width:80px;
+
+}
+.comn-btn{
+background:#3b3e41;
+color:white;
+border-radius:5px;
+padding:10px 20px;
+font-size:14px;
+/*margin-left:15px;*/
+border:none;
+cursor:pointer;
+}
+
+
+
+
+/********************addAll:End*************************/
+/***********************manageContent:start*********************************/
+.manageContentList{
+width:88%;
+margin-left:5%;
+border:2px solid;
+min-height:400px;
+}
+.addcontent-tabcontent{
+
+  text-align: center;
+  font-size: 20px;
+}
+.view-link{
+text-decoration:underline;
+}
+/************************manageContent:end********************************/
+/**********************dashboard:start*********************/
+.popup_block_dashboard{
+ width: 100%;
+  display: inline-block;
+  padding: 25px 0px;
+  min-height:400px;
+}
+.popup_block_dashboard div{
+width:88%;
+margin-left:5%;
+}
+.popup_block_dashboard div ul li{
+	background:#3b3e41;
+color:white;
+padding:10px 15px;
+min-width:150px;
+text-align:center;
+font-size:12px;
+margin-top:10px;
+cursor:pointer;
+  border-radius: 5px;
+}
+.right{
+float:right;
+
+
+}
+.button{
+	margin-top: 103px; 
+	
+}
+/***********************dashboard:end********************/
+/***********************PatientInfo:start************************/
+.patientInfoLeft,.patientInfoMiddle,.carepartenerInfo{
+  width: 24%;
+  border: 1px solid;
+  min-height: 220px;
+  margin-left: 2%;
+}
+.patientInfoRight{
+width:20%;
+margin-left:80%;
+margin-top: -223px;
+}
+.patientInfoMiddle{
+  border: 1px solid;
+  min-height: 220px;
+}
+.details-tabcontent{
+border-color: transparent;
+  font-size: 14px;
+}
+.patient-imgwrap{
+  text-align: center;
+  padding-top: 10px;
+}
+.patient-imgwrap img{
+width:200px;
+height:160px;
+border:2px solid grey;
+margin:0 auto;
+
+}
+.paient-inactiveWrapper div{
+margin-left:20px;
+margin-top: 550p
+}
+/***********************PatientInfo:End************************/
+/*********************************/
+.allpages-Header{
+background:#151a1d;
+}
+.drop{
+padding-bottom:20px;
+}
+/********************************/
+/****************Admin Pharmacy:start********************/
+.adminPhamacyDet{
+  width: 38%;
+  margin-left: 10%;
+  border: 2px solid;
+  min-height: 433px;
+}
+
+
+.PhamacyBranchDet{
+	 width: 38%;
+  margin-left: 32%;
+  border: 2px solid;
+  min-height: 433px;
+	
+}
+
+.hospitalBranchDet{
+  width: 38%;
+  margin-left: 32%;
+  border: 2px solid;
+  min-height: 433px;
+}
+
+
+.PhamacyDet{
+  width: 40%;
+  margin-left: 50%;
+  border: 2px solid;
+  min-height: 433px;
+}
+
+
+
+.tab-Head{
+font-weight:bold;
+}
+/*****************Admin Pharmacy:end*******************/

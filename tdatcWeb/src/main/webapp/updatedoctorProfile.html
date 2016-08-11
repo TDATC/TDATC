@@ -1,0 +1,303 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docs Around The Clock- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<!-- <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/constants.js"></script>
+<script src="js/commons.js"></script>
+
+
+<script>
+
+//var physicianId = getUrlVars()["physicianId"]; 
+
+	$(document).ready(function(){
+		
+		$("#tab").hide;
+		$(".drop").hover(function(){
+			 $("#"+this.id+" div").css("display", "block");
+				
+		    }, function(){
+				 $(".dropdownContain").css("display", "none");	
+		});
+		
+		 /* var hospitalTargetUrl = Constants.get("BASE_URL")+Constants.get("GET_HOSPITAL_BRANCH")+branchId;
+		  */
+		  
+		  var loginId=sessionStorage.getItem("loginId");
+			
+			var hospitalAdminTargetUrl = Constants.get("BASE_URL")+Constants.get("GET_PHYSICIAN_DETAIL")+loginId;
+			/* $.ajax({
+				url  : hospitalAdminTargetUrl,
+				type : 'GET',
+			    contentType: "application/json",
+			    success : function(data){
+			    	    alert(data.user_id);
+			    	    physicianId = data.user_id;
+			    	    loadPhysicianDetails(physicianId);
+					}
+				});  
+		  
+		 var hospitalTargetUrl = Constants.get("BASE_URL")+Constants.get("GET_HOSPITAL_BRANCH_DTO")+branchId;
+		  */
+		 $.ajax({
+			url  : hospitalAdminTargetUrl,
+			type : 'GET',
+		    contentType: "application/json",
+		    success : function(data){
+		    	$('#physician_id').val(data.physician_id);
+		    	$('#physicianName').val(data.user.firstName);
+		    	$('#email').val(data.user.emailAddress);
+		    	$('#phone').val(data.user.phonePersonel);
+		    	$('#DOB').val(data.user.dateOfBirth);
+		    	$('#country').val(data.user.country);
+		    	$('#gender').val(data.user.gender);
+		    	//$('.updateBranch').attr('id', data.branchId);
+		    	$('.updateDetails').attr('id', data.user.user_id);
+		    	$('#userId').val(data.user.user_id);
+		    	$('#specialization_id').val( data.specializations.specialization_id);
+		    	$('#specialization').val( data.specializations.specializations);
+		    	$('#experience').val(data.experienceInYear);
+		    	$('#qualification_id').val( data.qualification.qualification_id);
+		    	$('#education').val(data.qualification.qualification);
+		    	//$('#Fax').val(data.fax);
+		    	
+		    	
+		    }
+			}); 
+		
+		updateBranchDetails();
+});
+	
+	function updateBranchDetails(){
+		$('.updateDetails').click(function(){
+			alert("coming..");
+			//alert('Feature coming soon');
+			//alert($('#hospital_branchId').val());
+			var targetUrl = Constants.get("BASE_URL")+Constants.get("UPDATE_PHYSICIAN_DETAILS");
+			
+			var data={
+					
+					//$('physician_id').val(data.physician_id),
+				/* 	user_id:       $('#user_id').val(), */
+					physician_id : $('#physician_id').val(),
+					user: {
+						user_id: $('#userId').val(),
+					
+					firstName: $('#physicianName').val(),
+					emailAddress: $('#email').val(),
+					phonePersonel: $('#phone').val(),
+					dateOfBirth: $('#DOB').val(),
+					country: $('#country').val(),
+					"accountState":"ACTIVE",
+					"user_type":"PHS",
+					
+					gender: $('#gender').val()
+					
+					},
+					//user_id: $('#userId').val(),
+					specializations : {
+						    specialization_id : $('#specialization_id').val(),
+					          specializations: $('#specialization').val()
+					},
+					
+					experienceInYear: $('#experience').val(),
+				
+					
+					qualification : {
+						qualification_id : $('#qualification_id').val(),
+					    qualification: $('#education').val()
+					}
+					/* user: {
+						user_id:	$('#userId').val()
+					}  */
+			}
+			
+			var targetData=JSON.stringify(data);
+			
+			$.ajax({
+			        url: targetUrl,
+			        type: 'POST',
+			        contentType: "application/json",
+			        data: targetData,
+			        success: function(data){
+			        	alert( data );
+			        	 /* if(data === 'success'){
+	                       alert("Have Successfully Updated ur profile");
+			            }  */
+			           /*  if(data.success == "yes" )
+			            {
+			               alert( "You have succesfully inserted " );
+			               //Method to do stuff once I am invited
+			               //iAmInvitedMethod();
+			            } */
+			            
+ 		            }
+			})
+		});
+	}
+	
+</script>
+
+
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+    
+     <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><a href="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>The Docs</b>Around  the  Clock</div> <!-- Change your text logo here --> 
+          </div>
+
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+             <nav class="main_navigation">
+              <ul>
+               
+				
+				<li class="drop">
+				<a href="index.html"  class="droptab userLogout">Logout</a>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+ </div>
+
+</header>
+<body style=" background:url(images/b.png)" > 
+
+<div class="addContentHeader"><span> UPDATE DOCTOR PROFILE DETAILS</span></div>
+<div class="popup_block"> 
+	<div class=" addPharmacyBranches">
+		<table class="addpatientleft-tab">
+			<tr class="addcontent-tabHeader">
+				<td colspan="2"> DOCTOR  PROFILE <td>
+			</tr>
+			
+			
+			<tr>
+			     <td><input  type="hidden" id="user_id"  ></td>
+			</tr>
+				
+			
+			
+				
+				<tr>
+			     <td><input  type="hidden" id="physician_id"  ></td>
+			</tr>
+				
+			 <tr>
+			     <td><input  type="hidden" id="specialization_id"  ></td>
+			</tr>
+			
+				
+			<tr>
+			     <td><input  type="hidden" id="qualification_id"  ></td>
+			</tr>
+		
+			<tr>
+			     <td><input  type="hidden" id="userId"  ></td>
+			</tr>
+				
+			<!-- <tr>
+			     <td><input  type="text" id="userId" class="form-control" placeholder=" userId" ></td>
+			</tr> -->
+			
+			<tr>
+			     <td><input  type="text" id="physicianName" class="form-control" placeholder=" Name" ></td>
+			</tr>
+			
+			<tr>
+			     <td><input  type="text" id="email" class="form-control" placeholder="Email" ></td>
+			</tr>
+			
+			<tr>
+			    <td><input  type="text" id="phone"  class="form-control"  placeholder="Phone"></td>
+			</tr>
+			
+			<tr>
+			    <td><input  type="text" id="DOB" class="form-control"  placeholder="Date of Birth"></td>
+			</tr>
+				
+			<tr>
+			    <td><input  type="text" id="country" class="form-control"  placeholder="Country" ></td>
+			</tr>	
+			
+			<!-- <tr>
+			    <td><input  type="text" id="phoneBusiness"  class="form-control"  placeholder="Pincode"></td>
+			</tr> -->
+			
+			<tr>
+			    <td><input  type="text" id="gender"  class="form-control"  placeholder="Gender"></td>
+			</tr>
+			<tr>
+			    <td><input  type="text" id="specialization"  class="form-control"  placeholder="Specialization"></td>
+			</tr>
+			<tr>
+			    <td><input  type="text" id="experience"  class="form-control"  placeholder="Experience"></td>
+			</tr>
+			
+			<tr>
+			    <td><input  type="text" id="education"  class="form-control"  placeholder="Education"></td>
+			</tr>
+			</table>
+	
+		
+			    <div class="submit-btn-wrapper" >
+					<div class="comn-btn size updateDetails"  style="float:center;margin-left: 12%;margin-top: 5%;width:72%"  id="hospital">Edit</div>
+					
+				</div>
+				<br>
+					
+	</div>
+	
+	
+	
+  
+	</div>
+
+
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>The Docs </b>Around the Clock</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa"></i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>THE DOCS AROUND THE CLOCK &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+<script type="text/javascript">
+    function PreviewImage(no) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage"+no).files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview"+no).src = oFREvent.target.result;
+        };
+    }
+</script>
+</body>
+</html>

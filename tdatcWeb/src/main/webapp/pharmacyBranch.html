@@ -1,0 +1,191 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Docs Around The Clock- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js" rel="stylesheet" type="text/css" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/constants.js"></script>
+<script src="js/commons.js"></script>
+
+
+<script>
+
+var branchId = getUrlVars()["branchId"]; 
+
+	$(document).ready(function(){
+		
+		$("#tab").hide;
+		$(".drop").hover(function(){
+			 $("#"+this.id+" div").css("display", "block");
+				
+		    }, function(){
+				 $(".dropdownContain").css("display", "none");	
+		});
+		
+		
+		
+	var pharmacyTargetUrl = Constants.get("BASE_URL")+Constants.get("GET_PHARMACY_BRANCH")+branchId;
+		
+		$.ajax({
+			url  : pharmacyTargetUrl,
+			type : 'GET',
+		    contentType: "application/json",
+		    success : function(data){
+		    	
+		    	$('#branchName').val(data.branchName);
+		    	$('#branchCity').val(data.city);
+		    	$('#branchState').val(data.state);
+		    	$('#branchCountry').val(data.country);
+		    	$('#branchCode').val(data.branchCode);
+		    	$('#phoneBusiness').val(data.phoneBusiness1);
+		    	$('.updateBranch').attr('id', data.branchId);
+		    }
+			}); 
+		
+		updateBranchDetails();
+});
+	
+	function updateBranchDetails(){
+		$('.updateBranch').click(function(){
+			alert('Feature coming soon');
+		});
+	}
+	
+	
+</script>
+
+
+</head>
+<header class="allpages-Header">
+  <div class="navbar transparent navbar-inverse hr">    <!-- navbar-static-top -->
+    <div class="container top_interface">
+    
+     <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><a href="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>The Docs </b>Around  The Clockl</div> <!-- Change your text logo here --> 
+          </div>
+
+		<!-- <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm logo-content"><a class="logo-text"href="index.html">THE DOCS AROUND THE CLOCK</a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>Iam</b>Well</div> Change your text logo here 
+        </div> -->
+        <div class="nav col-md-10 col-sm-4 col-xs-4 right">
+         
+             <nav class="main_navigation">
+              <ul>
+               
+				<li class="drop"  id="pharmacy">
+					<a href="#"   class="droptab">PHARMACY BRANCH</a>
+					<div class="dropdownContain" id="pharmacy-opt">
+						<div class="dropOut">
+							<div class="triangle"></div>
+							<ul class="drop_list">
+								
+								<a href="#"><li><span>Manage</span></li></a>
+							</ul>
+						</div>
+					</div>
+			
+				</li>
+			
+				<li class="drop">
+				<a href="index.html"  class="droptab userLogout">Logout</a>
+				</li>
+            </ul>
+         </nav><!-- /nav -->
+        </div>
+    </div>         
+   </div>
+ </div>
+
+</header>
+<body style=" background:url(images/b.png)" > 
+
+<div class="addContentHeader"><span> ADD PHARMACY BRANCHES</span></div>
+<div class="popup_block"> 
+	<div class=" addPharmacyBranches">
+				<table class="addpatientleft-tab">
+			<tr class="addcontent-tabHeader">
+				<td colspan="2">ADD HOSPITAL BRANCHES</td>
+			</tr>
+			<tr>
+			     <td><input  type="text" id="branchName" class="form-control" placeholder="Branch Name" ></td>
+			</tr>
+			
+			<tr>
+			     <td><input  type="text" id="branchCity" class="form-control" placeholder="Branch City" ></td>
+			</tr>
+			
+			<tr>
+			    <td><input  type="text" id="branchState"  class="form-control"  placeholder="State"></td>
+			</tr>
+			
+			<tr>
+			    <td><input  type="text" id="branchCountry" class="form-control"  placeholder="Branch Country"></td>
+			</tr>
+				
+			<tr>
+			    <td><input  type="text" id="branchCode" class="form-control"  placeholder="Branch Code" ></td>
+			</tr>	
+			
+			<tr>
+			    <td><input  type="text" id="phoneBusiness"  class="form-control"  placeholder="Phone Business"></td>
+			</tr>
+			
+		</table>
+		
+		
+			    <div class="submit-btn-wrapper" >
+					<div class="comn-btn size updateBranch"  style="float:center;margin-left: 74%;margin-top: 17%"  id="">Update</div>
+					
+				</div>
+		
+	</div>
+	
+	
+	
+	</div>
+</div>
+
+
+<div   style="margin-top:150px">
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b>The Docs </b>Around the Clock</div> <!-- Change your text logo here -->
+    
+      <div class="copy">
+        <p><a><i class="fa"></i> Press Kit</a></p>
+      </div>
+      <div class="copy">
+        <p>THE DOCS AROUND THE CLOCK &copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+</div>
+
+<script type="text/javascript">
+    function PreviewImage(no) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage"+no).files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview"+no).src = oFREvent.target.result;
+        };
+    }
+</script>
+</body>
+</html>

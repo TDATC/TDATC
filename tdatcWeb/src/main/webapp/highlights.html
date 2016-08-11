@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>THE DOCS AROUND THE CLOCK- Doctors In Your Pocket</title>
+<meta name="description" content="IamWell - Doctors In Your Pocket" />
+<meta name="keywords" content="IamWell - Doctors In Your Pocket" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="css/master.css" media="screen">
+
+	<script src="js/hro3fkf.js"></script>
+<link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/preload.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/animate.css" media="screen" rel="stylesheet" type="text/css" >
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery1.11.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js"></script>
+<!-- <script src="js/core.js"></script >-->
+<script src="js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><font style="color: #D4071E;font-size:14px; padding-left:20px;">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.To see this page as it is meant to appear please use a Javascript enabled browser!</font></noscript>
+
+<script src="js/constants.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/commons.js"></script>
+
+
+<style>
+         .tab{  margin:10px; border:0px solid #666; }
+         .tab:hover{
+          margin:10px;padding:12px; border:0px solid #666; width:60px;
+         color:green;
+         background-color: white;
+         border-radius:5px;
+         }
+      </style>
+
+
+      
+<style>
+.theAppContent{
+
+width:100%;
+text-align: center;
+
+
+}
+
+p {
+    font-family: "Times New Roman", Georgia, Serif;
+   font-size:25px;
+} 
+
+</style>
+
+
+<script>
+	$(document).ready(function(){
+		
+		$('#modalClose').click(function(){
+		$('.bs-modal-sm-admin').hide();
+	
+		});
+		
+		$('#modalClose1').click(function(){
+		$('.bs-modal-sm-admin').hide();
+	});
+	$("#modalClose1").click(function(){
+	$('.bs-modal-sm-admin').hide();
+	});
+		
+		
+		$('#admin_login').click(function(){
+			
+			
+			$('.error').hide();
+			
+	        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	        var emailaddressVal = $("#admin_userName").val();
+	        var Password = $("#admin_password").val();
+	      
+	        if(emailaddressVal == '') {
+	            var s=$("#admin_userName").after('<span class="error" style="color:red">Please enter your email address.</span>');
+	           
+	        }
+	 
+	        else if(!emailReg.test(emailaddressVal)) {
+	            $("#admin_userName").after('<span class="error"   style="color:red">Enter a valid email address.</span>');
+	        }
+	        
+	        else if(Password == '') {
+	            $("#admin_password").after('<span class="error" style="color:red">Please enter your password.</span>');
+	            hasError = true;
+	        }
+	        else{
+		//============================	
+		 
+		/* var targetUrl = Constants.get("BASE_URL")+Constants.get("ADMIN_LOGIN_URL")+$('#admin_userName').val()+'/'+$('#admin_password').val();
+	
+			$.ajax({
+				url  : targetUrl,
+			    type : 'GET',
+		        contentType: "application/json",
+		        success : function(data){
+		        	
+				if(data.status === true){
+					
+					if(data.loggedInUserType === 'A'){
+						window.location = 'dashboard.html';
+					}else if(data.loggedInUserType === 'PHA'){
+						window.location = 'manageAdminPharmacy.html?adminId='+data.loginId;
+					}else if(data.loggedInUserType === 'HA'){
+						window.location = 'manageAdminHospitals.html?adminId='+data.loginId;
+					}
+					
+				
+				}else{
+				
+					  var admin_userName = $("#admin_userName").val();
+				        if(admin_userName == '$("#admin_userName").val()') {
+				            $("#pop_name").after('<span class="error" style="color:red">Please Enter   name.</span>');
+				            hasError = true;
+				        }
+				        
+				        var pop_city = $("#pop_city").val();
+				        if(pop_city == '') {
+				            $("#pop_city").after('<span class="error" style="color:red">Please Enter city.</span>');
+				            hasError = true;
+				        }
+				   }
+			    }  
+			});
+			 */
+			 
+			/* From Admin Rest Service */
+			var targetUrl = Constants.get("BASE_URL")+Constants.get("ADMIN_LOGIN")+$('#admin_userName').val()+'/'+$('#admin_password').val();
+			
+			$.ajax({
+				url  : targetUrl,
+			    type : 'GET',
+		        contentType: "application/json",
+		        success : function(data){
+		        	
+				if(data.status === true){
+					
+					sessionStorage.setItem("loginId",data.loginId);
+					// alert(sessionStorage.getItem("loginId"));
+					 
+					if(data.loggedInUserType === 'A'){
+						window.location = 'dashboard.html';
+					}else if(data.loggedInUserType === 'PHA'){
+						window.location = 'manageAdminPharmacy.html?adminId='+data.loginId;
+					}else if(data.loggedInUserType === 'HA'){
+						window.location = 'manageAdminHospitals.html?adminId='+data.loginId;
+					}else if(data.loggedInUserType === 'PHS'){
+					    window.location = 'doctorLogin.html?physicianId='+data.loginId;
+					}else if(data.loggedInUserType === 'PT'){
+						window.location = 'dashboard.html';
+					}
+				   
+				}else{
+				
+					  var admin_userName = $("#admin_userName").val();
+				        if(admin_userName == '$("#admin_userName").val()') {
+				            $("#pop_name").after('<span class="error" style="color:red">Please Enter   name.</span>');
+				            hasError = true;
+				        }
+				        
+				        var pop_city = $("#pop_city").val();
+				        if(pop_city == '') {
+				            $("#pop_city").after('<span class="error" style="color:red">Please Enter city.</span>');
+				            hasError = true;
+				        }
+				   }
+			    }  
+			});
+	
+	        }
+			
+		});
+		
+		$('#forgetPassword').click(function(){
+			
+			alert("forget password ");
+			
+	     var targetUrl = Constants.get("BASE_URL")+Constants.get("GET_FORGET_PASSWORD")+$('#forget_text').val();
+	     
+	     $.ajax({
+				url  : targetUrl,
+			    type : 'GET',
+		        contentType: "application/json",
+		        success : function(data){
+		        	alert(data);
+		        }
+		        	
+				/* if(data.status === true){
+					
+					if(data.loggedInUserType === 'A'){
+						window.location = 'dashboard.html';
+					}else if(data.loggedInUserType === 'PHA'){
+						window.location = 'manageAdminPharmacy.html?adminId='+data.loginId;
+					}else if(data.loggedInUserType === 'HA'){
+						window.location = 'manageAdminHospitals.html?adminId='+data.loginId;
+					} */
+					
+					
+				});
+					
+		});
+		
+		 $('#register').click(function(){
+			 alert("its  working");
+			 var  targetUrl=Constants.get('BASE_URL')+Constants.get( 'ADD_PATIENT');
+			 
+			 
+			 var  data={
+			 
+			  emailAddress:    $('#signupemail').val(),
+			  password    :    $('#signuppassword').val(),
+			  accountState:    "ACTIVE",
+			  gender      :     $('#gender').val(),
+			  firstName   :     $('#FirstName').val(),
+			  lastName    :     $('#LastName').val(),
+			  userType    :     $('#UserType').val(),
+			}
+
+			var targetData = JSON.stringify(data);
+			 $.ajax({
+			 url:targetUrl,
+			 type:'POST',
+			 contentType:"application/json",
+			 data:targetData,
+			 success:function(data){
+			 
+			 
+			  var toast = $(window).AndroidToast({
+			   message : "you  are  register  is  successfully  completed"
+			  });
+			        toast.AndroidToast('show');
+			 
+			 }
+			 
+			 
+			 });
+			 
+			 });
+		
+		
+		
+		
+	});
+</script>
+
+
+
+</head>
+<body>
+
+
+
+
+<header>
+  <div class="navbar transparent navbar-inverse hr">    
+    <div class="container top_interface">
+    
+    
+    <div class="logo col-md-2 col-sm-8 col-xs-8">        
+            <div class="hidden-xs hidden-sm"><a href="index.html" class="logo-text"><img src="images/headlogo.png" alt="IamWell logo"></a></div>
+            <div class="text-logo hidden-md hidden-lg"><b>The Docs </b>Around  The Clock</div> <!-- Change your text logo here --> 
+          </div>
+    
+         
+            <nav class="main_navigation">
+              <ul>
+              
+               <li><a class="get_the_app tab" href="#signup-patient" data-toggle="modal" data-target=".bs-modal-sm-admin">Doctor</a></li>
+				  <li><a class="get_the_app tab" href="#signup-admin" data-toggle="modal" data-target=".bs-modal-sm-admin">Client</a></li>
+               
+                 <li><a class="tab" href="theApp.html"> The App</a></li>
+                  <li><a class="tab" href="functions.html">Functions</a></li>
+                
+                  <li><a class="get_the_app tab" href="#signup" data-toggle="modal" data-target=".bs-modal-sm-admin">PHARMACY</a></li>
+                  <li><a class="get_the_app tab" href="#signup-patient" data-toggle="modal" data-target=".bs-modal-sm-admin">HOSPITAL</a></li>
+				  <li><a class="get_the_app tab" href="#signup-forget" data-toggle="modal" data-target=".bs-modal-sm-admin"   style="margin-top: 40px">Admin</a></li>
+				   <li><a class="tab" href="index.html">Logout</a></li>
+              </ul>
+            </nav>
+        </div>
+    </div>         
+  <div>
+  <img src="images/hh.jpg"  class="theAppContent"  style="height:700px;width:100%;margin-left:10px;"  >
+ 
+  </div>
+  <hr>
+  <div >
+  
+ <table align="center">
+  <tr>
+  <td><b> Highlights</b></td>
+  </tr>
+
+
+<tr><td>•	Video Conferencing for Provider to Provider & Provider to Patient Communications</td></tr>
+<tr><td>•	Two-Way Remote Monitoring</td></tr>
+<tr><td>•	View & Manage Medical Records, Images and other Data</td></tr>
+<tr><td>•	Evaluate and Review Healthcare Services and Practices.</td></tr>
+<tr><td>•	Auto Alerts to Family Members and Primary Care Professionals (ex: discharge info)</td></tr>
+<tr><td>•	Receive and Share Lab Results</td></tr>
+<tr><td>•	Research New Treatments</td></tr>
+<tr><td>•	Stay Up to Date with Health News and Compliance</td></tr>
+<tr><td>•	View & Manage Compliance Materials for Healthcare Facilities & Institutions</td></tr>
+<tr><td>•	View & Collaborate with Health Professionals On Medical Lectures, Innovative</td></tr>
+<tr><td>•	Treatments and Specialized Procedures</td></tr>
+<tr><td>•*  Speak with your Primary Health Provider from Anywhere in The World </td></tr>
+
+
+</table>
+ </div>
+
+
+ 
+<!--***************Footer*******************-->
+<hr> 
+<footer>
+  <div class="container logo">
+     <div class="text-logo"><b></b>  The Docs Around The Clock</div> 
+     <div class="copy">
+     <p><a><i class="fa"></i> Press Kit</a></p>
+     </div>
+     <div class="copy">
+      <p>The Docs Around The Clock&copy; 2015. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+
+  
+<!--***************Footer*******************-->
+    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+             <!--  <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+              <li class=""><a href="#forgot" data-toggle="tab">Forgot</a></li>    -->           
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">          
+        <!-- Sign In Tab -->
+          <div class="tab-pane fade active in" id="signin">
+            <form class="form-horizontal" method="post" action="/index/">
+            <fieldset>
+            <!-- Sign In Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">Email:</label>
+              <div class="controls">
+                <input required="" id="emailAddress" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]" placeholder="drsmith@doctors.com" autocomplete="off">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="passwordinput">Password:</label>
+              <div class="controls">
+                <input required="" id="password" name="password" class="input-medium form-control validate[required]" type="password" placeholder="Required" autocomplete="off">
+              </div>
+            </div>
+            
+            <!-- Expert usertype-->
+            <input type="hidden" name="userType" value="expert" class="userType" id="userType">
+            
+            <!-- Multiple Checkboxes (inline) -->
+            <div class="control-group">
+              <label class="control-label" for="rememberme"></label>
+             <!--  <div class="controls">
+                <label class="checkbox inline" for="rememberme-0">
+                  <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                  Remember me
+                </label>
+              </div>
+            </div>
+ -->
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin"></label>
+              <div class="controls">
+                <button id="signin" name="signin" class="comn-btn"> Sign In1</button>
+                <!-- <button id="signin2" name="signin2" class="w_btn">Forgot Password</button> -->
+              </div>
+            </div>
+            </fieldset>
+            </form>
+          </div>
+        <!-- Register Tab -->  
+          <div class="tab-pane fade in" id="signup">
+            <table class="addcontentregister-tab">
+				  <tbody>
+				    <tr class="addcontent-tabHeader">
+						<td colspan="2">Doctor Registration</td>
+					</tr>
+					<tr>
+						 <td><input type="text" id="name1" class="form-control" placeholder="First Name"></td>
+					</tr>
+						
+					<tr>
+						<td><input type="text" id="city1" class="form-control" placeholder="Last Name"></td>
+					</tr>	
+					
+					<tr>
+						<td><input type="text" id="branchCode" class="form-control" placeholder="Email Address"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" id="country1" class="form-control" placeholder="User Name"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" id="pinCode1" class="form-control" placeholder="Password"></td>
+					</tr>
+					<tr>
+						
+					</tr>
+					<tr>
+						<td><input type="text"  class="form-control" placeholder="Phone Number"></td>
+					</tr>
+					<tr>
+						<td class="submit-btn-wrapper">
+							<div class="comn-btn left">REGISTER</div>
+						</td>
+					</tr>			
+				</tbody>
+			</table>
+          </div>          
+        <!-- Forgot Password Tab -->  
+          <div class="tab-pane fade in" id="forgot">
+            <form class="form-horizontal" method="post" action="forgotpsd.html">
+            <fieldset>
+            <!-- Forgot Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">Email:</label>
+              <div class="controls">
+                <input required="" id="emailAddress" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]" placeholder="drsmith@doctors.com" autocomplete="off">
+              </div>
+            </div>
+
+            <!-- Expert usertype-->
+            <input type="hidden" name="userType" value="expert" class="userType" id="userType">                        
+            
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin"></label>
+              <div class="controls">
+                <!-- <button id="signin2" name="signin2" class="comn-btn ">Forgot Password</button> -->
+                
+                
+              </div>
+            </div>
+            </fieldset>
+            </form>
+          </div>
+          
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <center>
+        <a href="#" class="w_btn" data-dismiss="modal" >Close</a>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+Modal Patient Signup
+http://bootsnipp.com/TXTCLASS/snippets/8y25
+**********************************
+-->
+<!-- ========================================================pregs========================================================================================= -->
+<div class="modal fade bs-modal-sm-hospital" id="myModalPatient" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#signin-patient" data-toggle="tab">Sign In</a></li>
+              <!-- <li class=""><a href="#signup-patient" data-toggle="tab">Register</a></li>
+              <li class=""><a href="#forgot-patient" data-toggle="tab">Forgot</a></li>      -->         
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content"> 
+                   
+          <div class="tab-pane fade active in" id="signin-patient">
+          
+         
+            
+         
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">Email:</label>
+              <div class="controls">
+                <input required="" id="qqq" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]" placeholder="joe@patients.com" autocomplete="off">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="passwordinput">Password:</label>
+              <div class="controls">
+                <input required="" id="password" name="password" class="input-medium form-control validate[required]" type="password" placeholder="Required" autocomplete="off">
+              </div>
+            </div>
+            
+          
+            <input type="hidden" name="userType" value="user" class="userType" id="userType">
+            
+        
+           <!--  <div class="control-group">
+              <label class="control-label" for="rememberme"></label>
+              <div class="controls">
+                <label class="checkbox inline" for="rememberme-0">
+                  <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                  Remember me
+                </label>
+              </div>
+            </div>
+ -->
+         
+            <div class="control-group">
+              <label class="control-label" for="signin-patient"></label>
+              <div class="controls">
+              <center>
+                <button id="signin-patient" name="signin-patient" class="comn-btn admin_login" >Sign In</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+          </div>
+     
+          <div class="tab-pane fade in" id="signup-patient">
+            <table class="addcontentregister-tab">
+				  <tbody>
+				    <tr class="addcontent-tabHeader">
+						<td colspan="2">Patient Registration</td>
+					</tr>
+					<tr>
+						 <td><input type="text" id="name1" class="form-control" placeholder="First Name"></td>
+					</tr>
+						
+					<tr>
+						<td><input type="text" id="city1" class="form-control" placeholder="Last Name"></td>
+					</tr>	
+					
+					<tr>
+						<td><input type="text" id="branchCode" class="form-control" placeholder="Email Address"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" id="country1" class="form-control" placeholder="User Name"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" id="pinCode1" class="form-control" placeholder="Password"></td>
+					</tr>
+					<tr>
+											</tr>
+					<tr>
+						<td><input type="text"  class="form-control" placeholder="Phone Number"></td>
+					</tr>
+					<tr>
+						<td class="submit-btn-wrapper">
+							<div class="comn-btn left">REGISTER</div>
+						</td>
+					</tr>			
+				</tbody>
+			</table>
+          </div>
+       <!--    Forgot Password Tab   -->
+          <div class="tab-pane fade in" id="forgot-patient">
+            <form class="form-horizontal" method="post" action="forgotpsd.html">
+            <fieldset>
+            Forgot Form
+            Text input
+            <div class="control-group">
+              <label class="control-label" for="userid">Email:</label>
+              <div class="controls">
+                <input required="" id="emailAddress" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]" placeholder="joe@patients.com" autocomplete="off">
+              </div>
+            </div>
+
+            <!-- Expert usertype-->
+            <input type="hidden" name="userType" value="user" class="userType" id="userType">                        
+            
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin"></label>
+              <div class="controls">
+                <button id="signin2" name="signin2" class="comn-btn">Forgot Password</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+          </div>
+          
+                    
+        </div>
+      </div>
+      <div class="modal-footer">
+        <center>
+        <a href="#" class="w_btn" data-dismiss="modal">Close</a>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ==========================================================================prege======================================================================================== -->
+
+
+
+<!-- ========================================================aregs========================================================================================= -->
+<div class="modal fade bs-modal-sm-admin" id="myModaladmin" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#signin-admin" data-toggle="tab">Sign In</a></li>
+             <!--  <li class=""><a href="#signup-admin" data-toggle="tab">Register</a></li>
+              <li class=""><a href="#forgot-admin" data-toggle="tab">Forgot</a></li>   -->            
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content"> 
+        <!-- Sign In Tab -->                 
+          <div class="tab-pane fade active in" id="signin-admin">
+          
+            <!-- FB Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin-admin"></label>
+            </div>
+            <br>
+            <fieldset>
+            <!-- Sign In Form -->            
+            
+            
+            <!-- Text input-->
+            <div class="control-group"  >
+              <label class="control-label" for="userid">Email:</label>
+              <div class="controls">
+                <input required="" id="admin_userName" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]" placeholder="joeq@admin.com" autocomplete="off">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="passwordinput">Password:</label>
+              <div class="controls">
+                <input required="" id="admin_password" name="password1" class="input-medium form-control validate[required]" type="password" placeholder="Enter password" autocomplete="off">
+              </div>
+            </div>
+            
+            <!-- Patient usertype-->
+            <input type="hidden" name="userType" value="user" class="userType" id="userType">
+            
+    
+          
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin-admin"></label>
+              <div class="controls">
+              <center>
+                <button id="admin_login" name="signin-admin" class="comn-btn admin_login">Sign In</button>
+              
+           <!--   <a  id="modalClose1" class="get_the_app" href="#signup-forget"  data-dismiss="modal" data-toggle="modal" data-target=".bs-modal-sm-admin1">forgetpassword ?</a> -->
+           <br />
+        <a  id="modalClose1" class="get_the_app" href="#signup-forget"  data-dismiss="modal" data-toggle="modal" data-target=".bs-modal-sm-admin1" style=" font-style: italic">forgetpassword</a>
+             <br>
+              <a  id="modalClose1" class="get_the_app signup" href="#signup-forget"  data-dismiss="modal" data-toggle="modal" data-target=".signup" style=" font-style: italic">signup</a>
+            </div>
+            </fieldset>
+          
+          </div>
+       
+          
+                    
+        </div>
+      </div>
+      <div class="modal-footer">
+        <center>
+        <a href="#" class="w_btn" data-dismiss="modal" id="modalClose">Close</a>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ==========================================================================aregend======================================================================================== -->
+</div>
+</div> 
+
+<div class="modal fade bs-modal-sm-admin1 in" id="myModaladmin1" tabindex="-2" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#signin-admin" data-toggle="tab">Sign In</a></li>
+             <!--  <li class=""><a href="#signup-admin" data-toggle="tab">Register</a></li>
+              <li class=""><a href="#forgot-admin" data-toggle="tab">Forgot</a></li>   -->            
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content"> 
+        <!-- Sign In Tab -->                 
+          <div class="tab-pane fade active in" id="signin-admin">
+          
+            <!-- FB Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin-admin"></label>
+            </div>
+            <br>
+            <fieldset>
+            <!-- Sign In Form -->            
+            
+            
+            <!-- Text input-->
+            <div class="control-group"  >
+              <label class="control-label" id="email" for="userid">Email:</label>
+              <div class="controls">
+                <input required="" id="forget_text" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]" placeholder="joeq@admin.com" autocomplete="off">
+              </div>
+            </div>
+
+           
+            
+            <!-- Patient usertype-->
+            <input type="hidden" name="userType" value="user" class="userType" id="userType">
+            
+    
+          
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin-admin"></label>
+              <div class="controls">
+              <center>
+                <button id="forgetPassword" name="signin-admin" class="comn-btn admin_login">Send</button>
+              
+            
+        
+            </div>
+            </fieldset>
+          
+          </div>
+       
+          
+                    
+        </div>
+      </div>
+      <div class="modal-footer">
+        <center>
+        <a href="#" class="w_btn" data-dismiss="modal" id="modalClose1">Close</a>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+   
+<div class="modal fade signup in"  tabindex="-2" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#signin-admin" data-toggle="tab">Sign In</a></li>
+              <!-- <li class=""><a href="#signup-admin" data-toggle="tab">Register</a></li>
+              <li class=""><a href="#forgot-admin" data-toggle="tab">Forgot</a></li>     -->          
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content"> 
+                     
+          <div class="tab-pane fade active in" id="signin-admin">
+          
+        
+            <div class="control-group">
+              <label class="control-label" for="signin-admin"></label>
+            </div>
+            <br>
+            <fieldset>
+         
+            
+            <div class="control-group">
+              <label class="control-label"   for="userid">FirstName:</label>
+              <div class="controls">
+                <input required="" id="FirstName" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]   forgetpsd" placeholder="firstName" autocomplete="off">
+              </div>
+            </div>
+            
+            
+            
+            
+            
+            
+             <div class="control-group">
+              <label class="control-label"   for="userid">LastName:</label>
+              <div class="controls">
+                <input required="" id="LastName" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]   forgetpsd" placeholder="firstName" autocomplete="off">
+              </div>
+            </div>
+            
+            
+           
+            
+            <div class="control-group">
+              <label class="control-label"   for="userid">Email:</label>
+              <div class="controls">
+                <input required="" id="signupemail" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]   forgetpsd" placeholder="joeq@admin.com" autocomplete="off">
+              </div>
+            </div>
+            
+             <div class="control-group">
+              <label class="control-label"   for="userid">password:</label>
+              <div class="controls">
+                <input required="" id="signuppassword" name="emailAddress" type="text" class="input-medium form-control validate[required,custom[email]   forgetpsd"   placeholder="password" autocomplete="off">
+              </div>
+            </div>
+            
+            
+            
+            <div class="control-group">
+              <label class="control-label"   for="userid">Gender:</label>
+              <div class="controls">
+                
+               <select  class="form-control"  id="gender" >
+      <option>Gender</option>
+                 <option value="M">Male</option>
+                 <option value="F">Female</option>
+                 <option value="TG">TransGender</option>
+              </select>
+              </div>
+            </div>
+           
+             
+            <div class="control-group">
+              <label class="control-label"   for="userid">UserType:</label>
+              <div class="controls">
+               
+               <select  class="form-control"  id="UserType" >
+      <option>UserType</option>
+                 <option value="PT">Patient</option>
+                 <option value="A">Admin</option>
+                 <option value="HA">Hospital  admin</option>
+                  <option value="PHS">Physician</option>
+                   <option value="PHA">Pharmacy admin</option>
+              </select>
+              </div>
+            </div>
+            
+            
+           
+            <input type="hidden" name="userType" value="user" class="userType" id="userType">
+            
+    
+          
+
+           
+            <div class="control-group">
+              <label class="control-label" for="signin-admin"></label>
+              <div class="controls">
+              <center>
+                
+                       
+                         <button  name="register"  data-dismiss="modal"  data-target=".bs-modal-sm-adminn"  id="register"   class="comn-btn admin_login ">Register </button>
+                       </div>
+            </fieldset>
+          
+          </div>
+             <div class="modal-footer">
+        <center>
+        <a href="#" class="w_btn"  id="modalClose3"  data-dismiss="modal">Close</a>
+        </center>
+      </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
