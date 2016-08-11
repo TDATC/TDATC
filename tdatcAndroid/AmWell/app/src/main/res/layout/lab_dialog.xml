@@ -1,0 +1,111 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:background="#3F51B5"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/text_headingAlerts"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="@string/lab_details"
+                android:textColor="#fff"
+                android:textSize="22dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fileNameLabel"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"
+                android:padding="10dip"
+                android:text="@string/lab_fileName"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#444"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fileNameValue"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <!--<ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:src="@drawable/info" />-->
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            android:background="#EDEDED" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/uploadedDateLabel"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"
+                android:padding="10dip"
+                android:text="@string/uploaded_date"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#444"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/uploadedDateValue"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            android:background="#EDEDED" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:padding="12dp"
+            android:text="@string/string_ok"
+            android:layout_below="@id/date_intervals"
+            android:textColor="#ffffff"
+            android:background="#3F51B5"/>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:id="@+id/med_empty_container"
+    android:padding="10.0dip"
+    android:visibility="visible"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/list_iv_no_med_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10.0dip"
+            android:src="@drawable/no_medicine" />
+
+        <TextView
+            android:textSize="14.0sp"
+            android:textColor="@color/dark_grey"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/no_medicine_text"
+            android:paddingLeft="16.0dip"
+            android:paddingRight="16.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_med"/>
+    </LinearLayout>
+</FrameLayout>

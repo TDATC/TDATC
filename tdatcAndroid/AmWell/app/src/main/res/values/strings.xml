@@ -1,0 +1,408 @@
+<resources>
+    <string name="app_name">TDATC</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="email_hint">EMAIL ADDRESS</string>
+    <string name="pass_hint">PASSWORD</string>
+    <string name="confirm_pass_hint">CONFIRM PASSWORD</string>
+    <string name="login">LOGIN</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="first_name_hint">FIRST NAME</string>
+    <string name="last_name_hint">LAST NAME</string>
+    <string name="dob_hint">DATE OF BIRTH</string>
+    <string name="gender_hint">GENDER</string>
+    <string name="male_hint">MALE</string>
+    <string name="female_hint">FEMALE</string>
+    <string name="others_hint">OTHERS</string>
+    <string name="user_type_hint">USER TYPE</string>
+    <string name="health_plan_hint">HEALTH PLAN</string>
+    <string name="specialization_hint">SPECIALIZATION</string>
+    <string name="taxId_hint">TAX ID</string>
+    <string name="string_edit">EDIT</string>
+    <string name="string_cancel">CANCEL</string>
+    <string name="action_remove">REMOVE</string>
+    <string name="string_logout">LOGOUT</string>
+    <string name="unable_to_remove_doctors">Unable to remove. No Internet</string>
+    <string name="select_doctors">Please select doctors to remove</string>
+    <string name="title_activity_mydoctors">My Doctors</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet_cap">"Seems like you are not connected to the internet.
+ Please try and reload."</string>
+    <item name="default_rotation_speed" type="string">1.0</item>
+    <item name="default_sweep_speed" type="string">1.0</item>
+    <string name="appointment_doc_name">Doctor Name</string>
+    <string name="appointment_details_clinic_name">Clinic name</string>
+    <string name="appointment_details_date">date</string>
+    <string name="no_internet">No Internet</string>
+    <string name="title_select_time_slot">Select a time slot</string>
+    <string name="date_string_today">Today, %1$s</string>
+    <string name="date_string_tom">Tomorrow, %1$s</string>
+    <string name="select_clinic">Select Clinic</string>
+    <string name="txt_header">Header</string>
+    <string name="txt_secondary">secondary</string>
+    <string name="forgot_password">Forgot password\?</string>
+    <string name="forgot_label">Forgot Password</string>
+    <string name="forgot_password_msg">Enter your Email Address and we\'ll
+    send you a confirmation mail</string>
+    <string name="confirmation_mail">SEND CONFIRMATION MAIL</string>
+    <string name="login_msg">Just remembered\? Login</string>
+    <string name="no_med">Oops. Seems like you have no Medications</string>
+    <string name="med_search">Medicine name, Substance name</string>
+    <string name="preferred_doctor">Preferred Doctor</string>
+    <string name="preferred_doctor_msg">Do you want to add this Doctor to your preferred list\?</string>
+    <string name="doc_search">Specialities, symptoms, treatments</string>
+    <!--Error Text-->
+
+    <string name="email_error">Email is a required field.</string>
+    <string name="password_error">Password is a required field.</string>
+    <string name="email_invalid">Email address is invalid.</string>
+    <string name="firstName_error">First Name is a required field.</string>
+    <string name="lastName_error">Last Name is a required field.</string>
+    <string name="dob_error">Date of birth is a required field.</string>
+    <string name="confirm_password_error">Confirm password is a required field.</string>
+    <string name="password_match_error">Password and Confirm Password doesn\'t match.</string>
+    <string name="userType_error">User Type is a required field.</string>
+    <string name="healthPlan_error">Health Plan is a required field.</string>
+    <string name="specialization_error">Specialization is a required field.</string>
+    <string name="taxId_error">Tax Id is a required field.</string>
+    <string name="gender_error">Gender is a required field.</string>
+
+    <string-array name="homeListNames">
+        <item>Health Record</item>
+        <item>Health History</item>
+        <item>To-Dos</item>
+        <item>Appointments</item>
+        <item>References</item>
+        <item>Documents</item>
+        <item>My Providers</item>
+        <item>Labs</item>
+        <item>Remainders</item>
+    </string-array>
+
+    <string-array name="measurementTools">
+        <item>Active Energy Burned</item>
+        <item>Basal Energy Burned</item>
+        <item>Blood Glucose</item>
+        <item>Blood Oxygen Saturation</item>
+        <item>Blood Pressure</item>
+        <item>Body Mass Index</item>
+        <item>Body Temperature</item>
+        <item>Body Weight</item>
+        <item>Dietary Biotin</item>
+        <item>Dietary Caffeine</item>
+        <item>Dietary Calcium</item>
+        <item>Dietary Carbohydrates</item>
+        <item>Dietary Chloride</item>
+        <item>Dietary Cholestreol</item>
+        <item>Dietary Chromium</item>
+        <item>Dietary Copper</item>
+        <item>Dietary Energy Consumed</item>
+        <item>Dietary Fat Mono-unsaturated</item>
+        <item>Dietary Fat Polyunsaturated</item>
+        <item>Dietary fat Saturated</item>
+        <item>Dietary Fat Total</item>
+        <item>Dietary Fiber</item>
+        <item>Dietary Folate</item>
+        <item>Dietary Iodine</item>
+        <item>Dietary Iron</item>
+        <item>Dietary Magnesium</item>
+        <item>Dietary Manganese</item>
+        <item>Dietary Molybdenum</item>
+        <item>Dietary Niacin</item>
+        <item>Dietary Pantothenic Acid</item>
+        <item>Dietary Phosphorus</item>
+        <item>Dietary Potassium</item>
+        <item>Dietary Protein</item>
+        <item>Dietary Riboflavin</item>
+        <item>Dietary Selenium</item>
+        <item>Dietary Sodium</item>
+        <item>Dietary Sugar</item>
+        <item>Dietary Thiamin</item>
+        <item>Dietary Biotin</item>
+        <item>Dietary Caffeine</item>
+        <item>Dietary Calcium</item>
+        <item>Dietary Carbohydrates</item>
+        <item>Dietary Chloride</item>
+        <item>Dietary Cholesterol</item>
+        <item>Dietary Chromium</item>
+        <item>Dietary Copper</item>
+        <item>Dietary Energy Consumed</item>
+        <item>Dietary Fat Mono-unsaturated</item>
+        <item>Dietary Fat Polyunsaturated</item>
+        <item>Dietary Fat Saturated</item>
+        <item>Dietary Fat Total</item>
+        <item>Dietary Fiber</item>
+        <item>Dietary Folate</item>
+        <item>Dietary Iodine</item>
+        <item>Dietary Iron</item>
+        <item>Dietary Magnesium</item>
+        <item>Dietary Manganese</item>
+        <item>Dietary Molybdenum</item>
+        <item>Dietary Vitamin A</item>
+        <item>Dietary Vitamin B12</item>
+        <item>Dietary Vitamin B6</item>
+        <item>Dietary Vitamin C</item>
+        <item>Dietary Vitamin D</item>
+        <item>Dietary Vitamin E</item>
+        <item>Dietary Vitamin K</item>
+        <item>Dietary Zinc</item>
+        <item>Glycosylated Hemoglobin</item>
+        <item>Heart Rate</item>
+        <item>Height</item>
+        <item>Lean Body Mass</item>
+        <item>Peak Flow</item>
+        <item>Peripheral Perfusion</item>
+        <item>Respiratory Rate</item>
+
+    </string-array>
+
+    <string-array name="blood_groups">
+        <item>Choose blood group</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
+
+    <string-array name="intervals">
+        <item>Choose interval</item>
+        <item>Every Day</item>
+        <item>Weekly Two Times</item>
+        <item>Weekly Three Times</item>
+    </string-array>
+
+    <string-array name="modes">
+        <item>Choose mode</item>
+        <item>After Food</item>
+        <item>Before Food</item>
+    </string-array>
+
+    <string-array name="allergy_status">
+        <item>Choose status</item>
+        <item>Active</item>
+        <item>In active</item>
+    </string-array>
+
+    <string-array name="allergy_severity">
+        <item>Choose severity</item>
+        <item>Low</item>
+        <item>Mild</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="specialization">
+        <item>Dentist</item>
+        <item>Gynecologist</item>
+        <item>Dermatologist</item>
+        <item>Homeopath</item>
+        <item>Ayurveda</item>
+        <item>Cardiologist</item>
+        <item>Gastroenterologist</item>
+        <item>Neurologist</item>
+        <item>Ear-Nose-Throat (ENT)</item>
+        <item>Psychiatrist</item>
+        <item>General Physician</item>
+        <item>Physiotherapist</item>
+        <item>Pediatrician</item>
+        <item>Urologist</item>
+        <item>Orthopedist</item>
+        <item>Psychologist</item>
+        <item>Ophthalmologist</item>
+        <item>General Surgeon</item>
+    </string-array>
+
+    <!--Common-->
+    <string name="logout">Logout</string>
+    <string name="amWellPreference"></string>
+    <string name="title_activity_health_record">HealthRecord</string>
+    <string name="title_activity_upload_value">UploadValue</string>
+    <string name="title_activity_list_of_all_measurements">ListOfAllMeasurements</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_patient__home">Patient_Home</string>
+    <string name="title_activity_line_graph">LineGraph</string>
+    <string name="title_activity_personal_history">PersonalHistory</string>
+    <string name="title_activity_medication_search">MedicationSearch</string>
+    <string name="title_activity_edit_user_profile">EditUserProfileActivity</string>
+    <string name="edit_profile_male">Male</string>
+    <string name="edit_profile_female">Female</string>
+    <string name="edit_profile_others">Others</string>
+    <string name="edit_profile_dob">Date of Birth</string>
+    <string name="title_activity_medication_add">MedicationAdd</string>
+    <string name="title_activity_allergy_add">AllergyAdd</string>
+    <string name="title_activity_physician__home">Physician_Home</string>
+
+    <string name="doctor_profile_other_clinic">Other clinics</string>
+    <string name="doctor_profile_experience">Experience</string>
+    <string name="doctor_profile_fees">Consultation Fees</string>
+    <string name="doctor_profile_recommendation">Recommendations</string>
+    <string name="doctor_profile_no_practice">No practices</string>
+
+    <string name="btn_add_practice">Add New Clinic</string>
+    <string name="tag_practice_position">practice_position_tag</string>
+    <string name="dashboard_practice_profile_view_message">How patients view your practice in the TDATC Search app</string>
+    <string name="dashboard_view_profile">View profile</string>
+    <string name="dashboard_doctor_edit">Edit Profile</string>
+    <string name="list_header_profile">Your Profile</string>
+    <string name="list_header_clinics">Your Clinics</string>
+    <string name="dashboard_doctor_profile_view_message">How patients view you in the TDATC Search app</string>
+    <string name="available_today">AVAILABLE TODAY</string>
+    <string name="action_book">BOOK</string>
+    <string name="action_prefer">PREFER</string>
+    <string name="action_call">CALL</string>
+    <string name="sponsored_label">SPONSORED</string>
+    <string name="my_doctors">MY DOCTORS</string>
+    <string name="providers">PROVIDERS</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_base_profile">BaseProfileActivity</string>
+    <string name="title_activity_lab_details">LabDetails</string>
+    <string name="title_activity_my_doctors">MyDoctorsActivity</string>
+    <string name="title_activity_remainders">Remainders</string>
+    <string name="medicine_details">Medicine Details </string>
+    <string name="medication">Medication:</string>
+    <string name="chemicalName">Chemical Name:</string>
+    <string name="start_dt_tm">Start Date &amp; Time:</string>
+    <string name="end_dt_tm">End Date &amp; Time:</string>
+    <string name="intake_type">Intake Type:</string>
+    <string name="mode_name">Mode Name:</string>
+    <string name="string_iinterval">Interval:</string>
+    <string name="string_qua">Quantity:</string>
+    <string name="string_ok">OK</string>
+    <string name="remainder_read">Remainders Read</string>
+    <string name="remainder_unread">Remainders UnRead</string>
+    <string name="lab_details">Lab Details</string>
+    <string name="lab_fileName">File Name:</string>
+    <string name="uploaded_date">Uploaded Date:</string>
+    <string name="app_details">Appointment Details</string>
+    <string name="app_description">Description:</string>
+    <string name="app_date">Date:</string>
+    <string name="app_hour">Hour:</string>
+    <string name="app_status">Status:</string>
+    <string name="title_activity_edit_physician_profile">EditPhysicianProfileActivity</string>
+    <string name="btn_edit_photo">Edit Photo</string>
+    <string name="edit_name_hint">Name</string>
+    <string name="edit_primary_email_hint">Email</string>
+    <string name="country_code_india">+91</string>
+    <string name="edit_primary_mobile_hint">Mobile</string>
+    <string name="edit_registration_number_hint">Registration Number</string>
+    <string name="edit_registration_council_hint">Registration Council</string>
+    <string name="edit_registration_year_hint">Registration Year</string>
+    <string name="edit_specialization_hint">Specialization</string>
+    <string name="edit_qualification_hint">Qualification</string>
+    <string name="edit_experience_hint">Experience (in years)</string>
+    <string name="done">DONE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="edit_public_profile">Edit Public Profile</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="edit_profile_select_year">Choose year</string>
+
+    <string name="edit_doctor_error_city">City is a required field.</string>
+    <string name="edit_doctor_error_locality">Locality is a required field.</string>
+    <string name="edit_doctor_error_experience">Experience is a required field.</string>
+    <string name="edit_doctor_error_name">Name is a required field.</string>
+    <string name="edit_doctor_error_photo">Please add a profile photo!</string>
+    <string name="edit_doctor_error_primary_mobile">Mobile number is a required field.</string>
+    <string name="edit_doctor_error_qualification">Qualification is a required field.</string>
+    <string name="edit_doctor_error_registration_council">Registration Council is a required field.</string>
+    <string name="edit_doctor_error_registration_number">Registration Number is a required field.</string>
+    <string name="edit_doctor_error_registration_year">Registration Year is a required field.</string>
+    <string name="edit_doctor_error_specialization">Specialization is a required field.</string>
+    <string name="pick_from_gallery">Pick from Gallery</string>
+    <string name="add_from_camera">Add from Camera</string>
+    <string name="dashboard_view_practice">View clinic</string>
+    <string name="edit_practice_title">Edit Clinic</string>
+    <string name="Rs">\u20B9</string>
+    <string name="title_activity_base_editor">BaseEditorActivity</string>
+    <string name="edit_practice_name_hint">Clinic Name</string>
+    <string name="edit_primary_number_hint">Contact Number</string>
+    <string name="edit_city_locality_hint">City and Locality</string>
+    <string name="edit_city_hint">City</string>
+    <string name="edit_locality_hint">Locality</string>
+    <string name="edit_street_address_hint">Street Address</string>
+    <string name="edit_speciality_hint">Specialization</string>
+    <string name="edit_consultation_hint">Consultation Fees</string>
+    <string name="edit_timings_hint">Clinic Timings</string>
+    <string name="title_activity_base_timings">BaseTimingsActivity</string>
+    <string name="edit_timings_title">Edit Timings</string>
+    <string name="timings_conflicting">"Timings are conflicting.
+Try again."</string>
+    <string name="button_dismiss">Dismiss</string>
+    <string name="next">NEXT</string>
+    <string name="text_from">From</string>
+    <string name="time_to">To</string>
+    <string name="session">Session</string>
+    <string name="retry">RETRY</string>
+    <string name="inter_session_conflict">Timings are conflicting with the previous session</string>
+    <string name="same_timings_weekdays">Same timings for weekdays</string>
+    <string name="button_add_slot">Add Slot</string>
+    <string name="add_practice_title">Add Clinic</string>
+    <string name="edit_practice_error_address">Required</string>
+    <string name="edit_practice_error_locality">Required</string>
+    <string name="edit_practice_error_primary_mobile">Clinic primary contact is a required field.</string>
+    <string name="edit_error_primary_number_invalid">Please provide a valid phone number!</string>
+    <string name="edit_practice_error_name">Clinic name cannot be empty!</string>
+    <string name="edit_name_error_length"><font color="">Name must be between 3 and 50 characters.</font></string>
+    <string name="title_activity_base_selection">BaseSelectionActivity</string>
+    <string name="can_not_capture_photo">Failed to capture a new photo. Please check if storage has enough free space.</string>
+    <string name="no_camera">Camera is not supported by your device</string>
+    <string name="ok">OK</string>
+    <string name="no_network_connection">No network connection found</string>
+    <string name="edit_photo_error_failure">Failed to select photo! Please retry!</string>
+    <string name="edit_photo_error_size">Too large photo (Max. 10MB)</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="select_city">You have to select a City.</string>
+    <string name="select_specialization">You have to select one Specialization.</string>
+    <string name="select_speciality">You have to select one Speciality.</string>
+    <string name="select_council">You have to select one Council.</string>
+    <string name="select_locality">You have to select a Locality.</string>
+    <string name="select_qualification">You have to select one Qualification.</string>
+    <string name="wait_till_loading_completes">Please wait till loading completes</string>
+    <string name="city">City</string>
+    <string name="city_and_locality">City and Locality</string>
+    <string name="speciality">Speciality</string>
+    <string name="specialization">Specialization</string>
+    <string name="qualification">Qualification</string>
+    <string name="locality">Locality</string>
+    <string name="registration_council">Registration Council</string>
+    <string name="no_data">No data</string>
+    <string name="type_city">Type City</string>
+    <string name="type_locality">Type Locality</string>
+    <string name="type_qualification">Type Qualification</string>
+    <string name="type_registration_council">Type Registration Council</string>
+    <string name="type_speciality">Type Speciality</string>
+    <string name="type_specialization">Type Specialization</string>
+    <string name="use_location">Use location?</string>
+    <string name="location_disabled_message">Location access is disabled in your device. Do you want to enable it?</string>
+    <string name="enable">ENABLE</string>
+    <string name="edit_practice_create_progress">Creating new clinic… Please wait…</string>
+    <string name="edit_profile_update_progress">"Updating.
+Please wait…"</string>
+    <string name="edit_error_primary_mobile_invalid">Invalid number!</string>
+    <string name="edit_practice_create_failure">Failed to create clinic.</string>
+    <string name="edit_practice_create_success">New clinic created.</string>
+    <string name="edit_practice_update_failure">Clinic details update failed.</string>
+    <string name="edit_practice_update_success">Clinic details updated</string>
+    <string name="edit_success_message">Recent changes to your profile will be published after review</string>
+    <string name="dont_show_again">"Don't show again"</string>
+    <string name="title_activity_book_appointment">BookAppointmentActivity</string>
+    <string name="title_activity_appointment_book">AppointmentBookActivity</string>
+    <string name="progress_upload">Uploading…</string>
+    <string name="add_number">Add Mobile Number</string>
+    <string name="patient_name_invalid">Name must be between 3 to 50 characters</string>
+    <string name="patient_name_reqd">"&lt;font color='%1$s'>Name is a required field.&lt;/font>"</string>
+    <string name="doc_prefix">Dr.</string>
+    <string name="invalid_credentials">Please check your EmailId and Password</string>
+    <string name="edit_profile_update_failure">Profile update failed.</string>
+    <string name="edit_profile_update_success">Profile details updated</string>
+    <!--Patient-->
+
+    <!--Physician-->
+</resources>

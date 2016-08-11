@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/selector_synapse_list_glass" android:layout_width="fill_parent" android:layout_height="@dimen/item_doctor_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="@dimen/font_small" android:textColor="@color/grey_600" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="top" android:id="@+id/other_clinic_name_tv" android:paddingTop="@dimen/margin_8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:singleLine="true" android:fontFamily="sans-serif-medium"/>
+    <TextView android:textSize="@dimen/font_smallest" android:textColor="@color/grey_600" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="top" android:id="@+id/other_clinic_location_tv" android:paddingTop="@dimen/margin_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="sans-serif"/>
+</LinearLayout>

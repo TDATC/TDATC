@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="72dp">
+
+    <TextView
+        android:id="@+id/toolName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/title"
+        android:fontFamily="sans-serif"
+        android:text="Hello"/>
+
+    <TextView
+        android:id="@+id/uploaded_date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/genre"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="@dimen/genre"
+        android:fontFamily="sans-serif"
+        android:layout_below="@id/toolName"
+        android:text="Hello"/>
+
+    <TextView
+        android:id="@+id/uploaded_value"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="245dp"
+        android:textSize="@dimen/title"
+        android:fontFamily="sans-serif"
+        android:text="Hello"
+        android:layout_alignLeft="@id/toolName"
+        android:layout_alignStart="@id/toolName"
+        android:layout_marginStart="254dp"
+        android:layout_alignBottom="@id/uploaded_date"
+        android:layout_alignTop="@id/toolName" />
+
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/item_name"
+        android:background="#c0c0c0"/>
+
+</RelativeLayout>

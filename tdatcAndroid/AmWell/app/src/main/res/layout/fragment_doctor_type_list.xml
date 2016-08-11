@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selector_user_profile_item_background"
+    tools:context="com.skoruz.amwell.patient.DoctorTypeList">
+
+    <EditText
+        android:id="@+id/doc_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/doc_search"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        android:padding="8dp"
+        android:drawableStart="@drawable/ic_action_action_search"
+        android:drawableLeft="@drawable/ic_action_action_search"
+        android:background="@drawable/edittextsearch_style"/>
+
+    <ListView
+        android:id="@+id/general_doc_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/doc_search"
+        android:layout_marginTop="10dp"
+        android:divider="@null">
+    </ListView>
+
+</RelativeLayout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.skoruz.amwell">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name=".utils.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SignUp"
+            android:label="@string/title_activity_sign_up"
+            android:parentActivityName=".LoginActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".patient.Patient_Home"
+            android:label="@string/title_activity_patient__home" />
+        <activity
+            android:name=".patient.HealthRecord"
+            android:label="@string/title_activity_health_record"
+            android:parentActivityName=".patient.Patient_Home"
+            android:theme="@style/MeasurementList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.patient.Patient_Home" />
+        </activity>
+        <activity
+            android:name=".patient.ListOfAllMeasurements"
+            android:label="@string/title_activity_list_of_all_measurements"
+            android:parentActivityName=".patient.HealthRecord"
+            android:theme="@style/MeasurementList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.patient.HealthRecord" />
+        </activity>
+        <activity
+            android:name=".patient.UploadValue"
+            android:label="@string/title_activity_upload_value"
+            android:parentActivityName=".patient.HealthRecord"
+            android:theme="@style/MeasurementList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.patient.HealthRecord" />
+        </activity>
+        <activity
+            android:name=".patient.LineGraph"
+            android:label="@string/title_activity_line_graph"
+            android:parentActivityName=".patient.UploadValue"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.patient.UploadValue" />
+        </activity>
+        <activity
+            android:name=".patient.PersonalHistory"
+            android:label="@string/title_activity_personal_history"
+            android:parentActivityName=".patient.HealthRecord"
+            android:theme="@style/MeasurementList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.patient.HealthRecord" />
+        </activity>
+        <activity
+            android:name=".patient.MedicationSearch"
+            android:label="@string/title_activity_medication_search"
+            android:theme="@style/MeasurementList" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".patient.EditUserProfileActivity"
+            android:label="@string/title_activity_edit_user_profile"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".patient.MedicationAdd"
+            android:label="@string/title_activity_medication_add" />
+        <activity
+            android:name=".patient.AllergyAdd"
+            android:label="@string/title_activity_allergy_add" />
+        <activity
+            android:name=".physician.Physician_Home"
+            android:label="@string/title_activity_physician__home" />
+        <activity
+            android:name=".patient.LabDetails"
+            android:label="@string/title_activity_lab_details"
+            android:parentActivityName=".patient.Patient_Home"
+            android:theme="@style/MeasurementList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.patient.Patient_Home" />
+        </activity>
+        <activity
+            android:name=".patient.MyDoctorsActivity"
+            android:label="@string/title_activity_my_doctors"
+            android:parentActivityName=".patient.Patient_Home">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.patient.Patient_Home" />
+        </activity>
+        <activity
+            android:name=".patient.Remainders"
+            android:label="@string/title_activity_remainders"
+            android:parentActivityName=".patient.Patient_Home">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skoruz.amwell.patient.Patient_Home" />
+        </activity>
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".physician.BaseEditorActivity"
+            android:label="@string/title_activity_base_editor"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"/>
+
+        <service android:name=".service.SynapseService" />
+
+        <activity
+            android:name=".physician.BaseTimingsActivity"
+            android:label="@string/title_activity_base_timings" />
+        <!--
+        <activity
+            android:name=".selection.BaseSelectionActivity"
+            android:label="@string/title_activity_base_selection" >
+        </activity>
+        -->
+        <activity
+            android:name=".patient.appointment.BookAppointmentActivity"
+            android:label="@string/title_activity_book_appointment" />
+        <activity
+            android:name=".patient.appointment.AppointmentBookActivity"
+            android:label="@string/title_activity_appointment_book" />
+        <activity android:name=".patient.DoctorList"></activity>
+    </application>
+
+</manifest>

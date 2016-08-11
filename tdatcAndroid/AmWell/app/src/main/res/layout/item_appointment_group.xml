@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/slot" android:layout_width="fill_parent" android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/tops" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/bookapmnt_header_height" android:layout_centerVertical="true">
+                <ImageView android:layout_gravity="center_vertical" android:id="@+id/item_apmnt_img_header" android:background="@drawable/ic_morning_black" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="20.0dip" />
+                <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:textColor="@color/apmnt_intermediate_heading" android:layout_gravity="center_vertical" android:id="@+id/item_apmnt_txt_header_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/txt_header" app:fontTypeface="regular" />
+                <com.skoruz.amwell.ui.MyTextView android:textSize="12.0sp" android:textColor="@color/apmnt_subheading" android:layout_gravity="center_vertical" android:id="@+id/item_apmnt_txt_header_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/txt_secondary" app:fontTypeface="regular" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:paddingLeft="45.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <View android:id="@+id/v_upper_separator" android:background="@color/grey_cal" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="10.0dip" />
+                <com.skoruz.amwell.ui.RecyclerViewCustom android:layout_gravity="center_vertical" android:id="@+id/item_apmnt_recyler" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="30.0dip" android:overScrollMode="never" />
+                <View android:background="@color/grey_cal" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="10.0dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

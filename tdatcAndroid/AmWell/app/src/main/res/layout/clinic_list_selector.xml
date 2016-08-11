@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip">
+            <com.skoruz.amwell.ui.MyTextView android:textSize="18.0sp" android:layout_marginBottom="5dp" android:textColor="@color/color_title_header" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@+id/list_clinic_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/appointment_details_clinic_name" android:singleLine="true" app:fontTypeface="light" android:textStyle="bold"/>
+        </LinearLayout>
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip">
+        <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:visibility="visible" android:textColor="@color/light_grey" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@+id/mon_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/appointment_doc_name" android:singleLine="true" app:fontTypeface="regular" />
+        <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:visibility="gone" android:textColor="@color/color_title_header" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@+id/tue_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/appointment_doc_name" android:singleLine="true" app:fontTypeface="regular" />
+        <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:visibility="gone" android:textColor="@color/color_title_header" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@+id/wed_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/appointment_doc_name" android:singleLine="true" app:fontTypeface="regular" />
+        <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:visibility="gone" android:textColor="@color/color_title_header" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@+id/thur_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/appointment_doc_name" android:singleLine="true" app:fontTypeface="regular" />
+        <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:visibility="gone" android:textColor="@color/color_title_header" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@+id/fri_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/appointment_doc_name" android:singleLine="true" app:fontTypeface="regular" />
+        <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:visibility="gone" android:textColor="@color/color_title_header" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@+id/sat_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/appointment_doc_name" android:singleLine="true" app:fontTypeface="regular" />
+        <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:visibility="gone" android:textColor="@color/color_title_header" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@+id/sun_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/appointment_doc_name" android:singleLine="true" app:fontTypeface="regular" />
+        <RelativeLayout android:background="@color/bg_grey" android:layout_width="fill_parent" android:layout_height="8.0dip">
+            <View android:background="#ffeaeaea" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_alignParentTop="true" />
+            <View android:background="#ffeaeaea" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

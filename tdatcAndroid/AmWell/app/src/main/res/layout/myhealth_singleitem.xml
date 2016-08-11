@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/selector_user_profile_item_background"
+    android:addStatesFromChildren="true"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp">
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/ic_action_action_search"
+        android:scaleType="fitCenter"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:textSize="16sp"
+        android:textColor="@color/color_profile_text"
+        android:gravity="center_vertical"
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:text="Dummy"/>
+    <!--<View
+        android:background="#ffeaeaea"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_alignParentBottom="true" />-->
+    </RelativeLayout>

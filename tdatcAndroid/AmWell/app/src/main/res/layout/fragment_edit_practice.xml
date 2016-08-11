@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/toolbar_title_shadow_padding_left" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:orientation="vertical" android:id="@+id/edit_practice_rl_content_progress" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true">
+            <com.skoruz.amwell.ui.materialdesign.MaterialProgressBar android:layout_centerInParent="true" app:color="@color/primary_blue" style="@style/progress_bar" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/edit_practice_ll_content" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ScrollView android:id="@+id/scrollView" android:layout_width="fill_parent" android:layout_height="0.0dip" android:fillViewport="true" android:layout_weight="2.0">
+                <LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="2.0">
+                    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <com.android.volley.ui.NetworkImageView android:id="@+id/edit_practice_iv_photo" android:layout_width="fill_parent" android:layout_height="188.0dip" android:src="@drawable/background_default_add_practice" android:scaleType="centerCrop" />
+                            <com.skoruz.amwell.ui.materialdesign.MaterialProgressBar android:layout_gravity="center" android:id="@+id/edit_doctor_photo_progress" android:visibility="gone" app:color="@color/primary_blue" style="@style/BaseProgressStyle" />
+                        </FrameLayout>
+                        <ImageButton android:layout_gravity="bottom|center|right" android:id="@+id/edit_practice_btn_photo" android:background="@drawable/background_edit_round" android:layout_width="36.0dip" android:layout_height="36.0dip" android:layout_margin="8.0dip" android:src="@drawable/ic_image_edit" android:alpha="0.7" style="?android:attr/buttonStyleSmall" />
+                    </FrameLayout>
+                    <include android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginBottom="15.0dip" layout="@layout/divider_full_horizontal" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/base_edit_layout_height">
+                        <ImageView android:src="@drawable/ic_user_light" style="@style/BaseIconLabelStyle" />
+                        <com.rengwuxian.materialedittext.MaterialEditText android:textSize="16.0sp" android:id="@+id/edit_practice_et_name" android:hint="@string/edit_practice_name_hint" android:inputType="textCapWords" style="@style/BaseEditTextStyle" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/base_edit_layout_height">
+                        <ImageView android:src="@drawable/ic_call" style="@style/BaseIconLabelStyle" />
+                        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <TextView android:textSize="16.0dip" android:gravity="center" android:paddingBottom="8.0dip" android:layout_width="48.0dip" android:text="@string/country_code_india" style="@style/BaseEditTextStyle" />
+                            <include layout="@layout/divider_vertical" />
+                            <com.rengwuxian.materialedittext.MaterialEditText android:textSize="16.0sp" android:id="@+id/edit_practice_et_primary_mobile" android:hint="@string/edit_primary_number_hint" android:inputType="phone" style="@style/BaseEditTextStyle" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/base_edit_layout_height">
+                        <ImageView android:src="@drawable/ic_location" style="@style/BaseIconLabelStyle" />
+                        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_width="48.0dip" android:layout_height="24.0dip" android:layout_marginTop="10.0dip" android:src="@drawable/ic_flag_india" />
+                            <include layout="@layout/divider_vertical" />
+                            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                <com.rengwuxian.materialedittext.MaterialEditText android:textSize="16.0sp" android:id="@+id/edit_practice_et_city" android:paddingRight="36.0dip" android:focusableInTouchMode="false" android:hint="@string/edit_city_hint" android:singleLine="true" android:editable="false" style="@style/BaseEditTextStyle" />
+                                <ImageView android:layout_gravity="center|right" android:layout_width="36.0dip" android:layout_height="36.0dip" android:layout_marginBottom="20.0dip" android:src="@drawable/ic_edit" />
+                            </FrameLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/base_edit_layout_height">
+                        <ImageView android:src="@drawable/ic_location" style="@style/BaseIconLabelStyle" />
+                        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                <com.rengwuxian.materialedittext.MaterialEditText android:textSize="16.0sp" android:id="@+id/edit_practice_et_locality" android:paddingRight="36.0dip" android:focusableInTouchMode="false" android:hint="@string/edit_locality_hint" android:singleLine="true" android:editable="false" style="@style/BaseEditTextStyle" />
+                                <ImageView android:layout_gravity="center|right" android:layout_width="36.0dip" android:layout_height="36.0dip" android:layout_marginBottom="20.0dip" android:src="@drawable/ic_edit" />
+                            </FrameLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/base_edit_layout_height">
+                        <ImageView android:src="@drawable/ic_clinic" style="@style/BaseIconLabelStyle" />
+                        <com.rengwuxian.materialedittext.MaterialEditText android:textSize="16.0sp" android:id="@+id/edit_practice_et_street_address" android:paddingRight="48.0dip" android:layout_width="0.0dip" android:hint="@string/edit_street_address_hint" android:singleLine="true" android:layout_weight="1.0" android:inputType="textCapWords" style="@style/BaseEditTextStyle" />
+                        <include android:layout_gravity="center_vertical" android:layout_width="1.0dip" android:layout_height="40.0dip" android:layout_marginLeft="4.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="20.0dip" layout="@layout/divider_vertical" />
+                        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="48.0dip" android:layout_height="48.0dip">
+                            <ImageView android:layout_gravity="center" android:id="@+id/edit_practice_ib_locate" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginRight="8.0dip" android:layout_marginBottom="8.0dip" android:src="@drawable/ic_location_auto" android:scaleType="center" />
+                            <ProgressBar android:layout_gravity="center" android:id="@+id/progress_bar_locate" android:visibility="gone" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginRight="8.0dip" android:layout_marginBottom="8.0dip" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/base_edit_layout_height">
+                        <ImageView android:src="@drawable/ic_speciality" style="@style/BaseIconLabelStyle" />
+                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <com.rengwuxian.materialedittext.MaterialEditText android:textSize="16.0sp" android:id="@+id/edit_practice_et_speciality" android:paddingRight="36.0dip" android:focusableInTouchMode="false" android:hint="@string/edit_speciality_hint" android:singleLine="true" android:editable="false" style="@style/BaseEditTextStyle" />
+                            <ImageView android:layout_gravity="center|right" android:layout_width="36.0dip" android:layout_height="36.0dip" android:layout_marginBottom="20.0dip" android:src="@drawable/ic_edit" />
+                        </FrameLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/base_edit_layout_height">
+                        <ImageView android:src="@drawable/ic_fees" style="@style/BaseIconLabelStyle" />
+                        <com.skoruz.amwell.utils.PrefixedMaterialEditText android:textSize="16.0sp" android:id="@+id/edit_practice_et_fees" android:hint="@string/edit_consultation_hint" android:inputType="number" style="@style/BaseEditTextStyle" app:prefix="@string/Rs"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <ImageView android:src="@drawable/ic_fees" style="@style/BaseIconLabelStyle" />
+                        <EditText android:textSize="@dimen/font_mediumest" android:id="@+id/edit_practice_et_timings" android:focusable="false" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/edit_timings_hint" android:editable="false" style="@style/BaseEditTextStyle" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

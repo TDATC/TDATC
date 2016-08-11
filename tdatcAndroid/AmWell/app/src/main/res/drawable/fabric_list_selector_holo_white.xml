@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <corners android:radius="2.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#00cccccc" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="2.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#10cccccc" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="2.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#20d5d5d5" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="4.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#30cbcbcb" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="2.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#50bababa" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@color/practo_blue" />
+                    <corners android:radius="2.0dip" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_focused="true" android:drawable="@color/practo_blue" />
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <corners android:radius="2.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#00cccccc" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="2.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#10cccccc" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="2.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#20d5d5d5" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="4.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#30cbcbcb" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="2.0dip" />
+                    <padding android:top="1.0dip" android:bottom="1.0dip" />
+                    <solid android:color="#50bababa" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@color/white" />
+                    <corners android:radius="2.0dip" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

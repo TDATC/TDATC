@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.rengwuxian.materialedittext.MaterialEditText android:textAppearance="?android:textAppearance" android:id="@+id/edit_text_search" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_marginRight="16.0dip" android:singleLine="true" android:drawableLeft="@drawable/ic_action_action_search" style="@style/BaseEditTextStyle" />
+    <TextView android:gravity="center" android:layout_gravity="center" android:id="@android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_data" />
+    <com.skoruz.amwell.utils.RecyclerPlusView android:id="@+id/recycler_view" android:paddingTop="16.0dip" android:saveEnabled="false" android:clipToPadding="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/layout_progress" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ProgressBar android:id="@+id/progess_bar" app:color="@color/primary_blue" style="@style/progress_bar" />
+    </LinearLayout>
+</LinearLayout>

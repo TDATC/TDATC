@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skoruz.amwell.patient.LabDetails"
+    android:orientation="vertical">
+
+    <LinearLayout android:orientation="vertical" android:id="@+id/lnrLyt_attachments" android:background="@drawable/category_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/font_fifteen" android:textStyle="bold" android:textColor="@color/dark_grey" android:id="@+id/txtVw_attachFile" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_ten" android:layout_marginTop="@dimen/margin_fifteen" android:layout_marginBottom="@dimen/margin_three" android:text="Attach documents" android:fontFamily="sans-serif"/>
+        <TextView android:textSize="@dimen/font_thirteen" android:textColor="@color/light_grey" android:id="@+id/txtVw_attachHelpText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_ten" android:layout_marginBottom="@dimen/margin_ten" android:text="(Attach only one documents)" android:fontFamily="sans-serif"/>
+        <View android:id="@+id/divider_attachment" android:layout_width="fill_parent" style="@style/separator" />
+        <LinearLayout android:orientation="vertical" android:id="@+id/lnrLyt_attachedFiles" android:background="@drawable/category_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_fifteen" android:layout_marginRight="@dimen/margin_fifteen" />
+        <Button android:textColor="@drawable/custom_button_text_style" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/attach_button" android:background="@drawable/button_red" android:paddingLeft="@dimen/margin_thirtyFive" android:paddingRight="@dimen/margin_thirtyFive" android:layout_width="wrap_content" android:layout_height="35.0dip" android:layout_marginTop="@dimen/margin_fifteen" android:layout_marginBottom="@dimen/margin_ten" android:text="Attach" />
+        <Button android:textColor="@drawable/custom_button_text_style" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/send_button" android:background="@drawable/button_red" android:paddingLeft="@dimen/margin_thirtyFive" android:paddingRight="@dimen/margin_thirtyFive" android:layout_width="wrap_content" android:layout_height="35.0dip" android:layout_marginTop="@dimen/margin_fifteen" android:layout_marginBottom="@dimen/margin_ten" android:text="Send" android:visibility="gone"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/labDocuments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/category_layout">
+        <View android:layout_width="fill_parent" style="@style/separator" />
+        <TextView android:textSize="@dimen/font_fifteen" android:layout_gravity="center_horizontal" android:textStyle="bold" android:textColor="@color/dark_grey" android:id="@+id/labDoc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_ten" android:layout_marginBottom="@dimen/margin_ten" android:text="LAB DOCUMENTS" android:fontFamily="sans-serif"/>
+        <View android:layout_width="fill_parent" style="@style/separator" />
+        <ListView
+            android:id="@+id/pdfList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/category_layout">
+        </ListView>
+    </LinearLayout>
+</LinearLayout>

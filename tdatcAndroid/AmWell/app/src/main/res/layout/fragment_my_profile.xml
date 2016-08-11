@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="?dividerHorizontal" android:showDividers="middle"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:orientation="vertical" android:id="@+id/dashboard_rl_content_progress" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true">
+        <!--<com.practo.synapse.ui.materialdesign.MaterialProgressBar android:layout_centerInParent="true" app:color="@color/primary_blue" style="@style/progress_bar" />-->
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@+id/dashboard_ll_master_content" android:background="@color/background_card" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ListView android:scrollbarStyle="outsideOverlay" android:id="@+id/dashboard_lv_practice" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:visibility="visible" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/md_transparent" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skoruz.amwell.ui.zdepth.ZDepthShadowLayout
+    android:id="@+id/toolbar_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" style="@style/ShadowStyle.One"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.Toolbar android:id="@+id/toolbar" android:background="@color/colorPrimaryDark" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?actionBarSize" app:popupTheme="@style/ToolbarPopup" app:titleTextAppearance="@style/ToolbarTitle" app:subtitleTextAppearance="@style/ToolbarSubTitle" app:theme="@style/ThemeOverlay.AppCompat.Dark" />
+    <TextView android:textColor="@android:color/white" android:gravity="center_vertical" android:layout_gravity="center|right" android:id="@+id/edit_my_doctors" android:background="@drawable/fabric_blue_selector" android:paddingLeft="10.0dip" android:paddingRight="15.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:adjustViewBounds="true" android:text="@string/string_edit"/>
+</com.skoruz.amwell.ui.zdepth.ZDepthShadowLayout>

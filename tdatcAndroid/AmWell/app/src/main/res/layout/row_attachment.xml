@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:screenOrientation="portrait" android:orientation="horizontal" android:background="@drawable/round_corner_light_grey_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="right" android:id="@+id/imgVw_attachemntThumb" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_margin="10dp" android:scaleType="centerCrop" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <ImageView android:layout_gravity="right" android:id="@+id/imgVw_removeAttachment" android:paddingTop="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5dp" android:src="@drawable/auto_cross" android:layout_alignParentRight="true" />
+    <TextView android:textSize="15sp" android:textColor="@color/dark_grey" android:id="@+id/txtVw_mediaName" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:layout_toLeftOf="@id/imgVw_removeAttachment" android:layout_toRightOf="@id/imgVw_attachemntThumb" android:layout_centerVertical="true" />
+    <View android:id="@+id/vw_divider" android:background="@color/divider" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_below="@id/imgVw_attachemntThumb" />
+</RelativeLayout>

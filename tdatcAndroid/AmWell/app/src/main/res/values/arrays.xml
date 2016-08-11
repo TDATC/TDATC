@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="doctor_icons">
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+        <item>@drawable/ic_android_black_18dp</item>
+    </array>
+</resources>

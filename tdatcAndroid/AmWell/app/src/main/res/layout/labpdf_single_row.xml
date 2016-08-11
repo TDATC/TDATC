@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:screenOrientation="portrait" android:background="@drawable/category_layout" android:layout_width="fill_parent" android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="right" android:id="@+id/fileType" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_margin="10dp" android:scaleType="centerCrop" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="15sp" android:textColor="@color/dark_grey" android:id="@+id/fileName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:layout_toRightOf="@id/fileType" android:layout_marginTop="10dp" />
+    <TextView android:textSize="15sp" android:textColor="@color/light_grey" android:id="@+id/fileDate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:layout_toRightOf="@id/fileType" android:layout_marginTop="5dp" android:layout_below="@id/fileName"/>
+    <View android:id="@+id/fileDivider" android:background="@color/divider" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_below="@id/fileType" />
+</RelativeLayout>

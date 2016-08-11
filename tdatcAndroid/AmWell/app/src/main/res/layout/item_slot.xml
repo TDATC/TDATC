@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="left" android:id="@+id/slot" android:layout_width="fill_parent" android:layout_height="@dimen/bookapmnt_slot_height"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.skoruz.amwell.ui.MyTextView android:textSize="14.0sp" android:textColor="@color/fabric_grid_item_text_colorlist" android:gravity="center" android:layout_gravity="center" android:id="@+id/slot_info" android:background="@drawable/fabric_list_selector_glass" android:layout_width="fill_parent" android:layout_height="fill_parent" android:singleLine="true" app:fontTypeface="regular" />
+</FrameLayout>

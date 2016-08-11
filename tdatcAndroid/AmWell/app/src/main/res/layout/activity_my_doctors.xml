@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="?actionBarSize" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:id="@+id/fragment_container" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <Button android:textColor="@color/white" android:layout_gravity="bottom" android:id="@+id/remove_my_doctors" android:background="@color/tdatc_red" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?actionBarSize" android:text="@string/action_remove" android:layout_weight="0.0" />
+    </LinearLayout>
+    <include layout="@layout/toolbar_mydoctors_edit_option" />
+</FrameLayout>

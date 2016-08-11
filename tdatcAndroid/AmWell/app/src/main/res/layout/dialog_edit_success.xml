@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/md_content_textsize" android:paddingLeft="@dimen/md_dialog_frame_margin" android:paddingRight="@dimen/md_dialog_frame_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/edit_success_message" />
+    <!--<TextView android:textSize="12.0dip" android:paddingLeft="@dimen/md_dialog_frame_margin" android:paddingRight="@dimen/md_dialog_frame_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/edit_more" />-->
+    <CheckBox android:textSize="14.0dip" android:textColor="?android:textColorSecondary" android:id="@+id/checkbox" android:paddingRight="@dimen/md_dialog_frame_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="18.0dip" android:layout_marginTop="5.0dip" android:button="@drawable/selector_checkbox_button" android:text="@string/dont_show_again" />
+</LinearLayout>
